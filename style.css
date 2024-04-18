@@ -1,5 +1,10 @@
 :root {
     --gutter-width: 20%;
+    scroll-behavior: smooth;
+}
+
+* {
+    scroll-margin-block: 10dvh;
 }
 
 body {
@@ -15,6 +20,10 @@ body {
     display: grid;
     grid-template-columns: var(--main-layout);
     margin: 0;
+}
+:target > :first-child::before {
+    content: "# ";
+    opacity: .5;
 }
 
 body > * {
@@ -103,5 +112,43 @@ section {
         height: 100%;
         object-fit: cover;
         filter: blur(2px);
+    }
+}
+
+nav {
+    grid-column: full-width;
+    position: sticky;
+    top: 0;
+}
+menu {
+    display: flex;
+    list-style: none;
+    justify-content: center;
+    padding: 0 10%;
+    margin: 0;
+    border-bottom: 1px solid black;
+    backdrop-filter: blur(2px);
+    background-color: hsla(0 100% 100% / .7);
+}
+menu a {
+    display: block;
+    padding: 1em;
+    &:hover, &:focus-visible {
+        background-color: hsla(180deg 100% 27.25% / .2);
+    }
+}
+menu li {
+    position:relative;
+
+    &:not(:last-child)::after {
+        content: "";
+        position: absolute;
+        right: 0;
+        top: 15%;
+        bottom: 15%;
+        border: 1px solid hsl(180deg 29.23% 87.25%);
+        border-radius: 50%;
+        translate: 50%;
+        z-index: 1;
     }
 }
