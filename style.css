@@ -144,6 +144,15 @@ section {
         height: 100%;
         aspect-ratio: 16/9;
         object-fit: cover;
+
+        view-timeline: --subjectReveal block;
+        animation-timeline: --subjectReveal;
+
+        animation-name: sharpen;
+        animation-fill-mode: both;
+        animation-duration: 1ms;
+        animation-range: entry contain;
+        z-index: -1;
     }
     & > h2 {
         grid-area: title;
@@ -172,5 +181,14 @@ footer {
     }
     & nav > ul ul {
 
+    }
+}
+
+@keyframes sharpen {
+    from {
+        filter: blur(10px);
+    }
+    to {
+        filter: blur(0);
     }
 }
