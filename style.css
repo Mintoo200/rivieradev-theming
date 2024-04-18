@@ -1,3 +1,71 @@
+:root {
+    color-scheme: light dark;
+    --gutter-width: 20%;
+}
+
+body {
+    font-family: system-ui, sans-serif;
+    --main-layout:
+            [full-width-start right-gutter-start]
+            var(--gutter-width)
+            [right-gutter-end content-start]
+            1fr
+            [content-end right-gutter-start]
+            var(--gutter-width)
+            [right-gutter-end full-width-end];
+    display: grid;
+    grid-template-columns: var(--main-layout);
+}
+
+body > * {
+    grid-column: content;
+}
+body > header,
+body > footer {
+    grid-column: full-width;
+}
+
 h1 {
     color: darkcyan;
+}
+h2 {
+    font-size: 2em;
+}
+
+section {
+    --gutter-width: 10%;
+    grid-column: full-width;
+
+    display: grid;
+    grid-template-areas:
+            "photo title ."
+            "photo paragraph .";
+    grid-template-columns: 2fr 1fr var(--gutter-width);
+    grid-template-rows: auto auto;
+    column-gap: 3ch;
+    align-items: center;
+    justify-items: start;
+    text-align: justify;
+    &:nth-child(2n + 1) {
+        grid-template-areas:
+            ". title photo"
+            ". paragraph photo";
+        grid-template-columns: var(--gutter-width) 1fr 2fr;
+        justify-items: end;
+    }
+
+    & > img {
+        grid-area: photo;
+        width: 100%;
+        aspect-ratio: 16/9;
+        object-fit: cover;
+    }
+    & > h2 {
+        grid-area: title;
+        margin: 0;
+    }
+    & > p {
+        grid-area: paragraph;
+        margin: 0;
+    }
 }
