@@ -61,6 +61,7 @@ nav {
     grid-column: full-width;
     position: sticky;
     top: 0;
+    z-index: 1;
 }
 nav ul,
 menu {
@@ -178,7 +179,6 @@ section {
         animation-fill-mode: both;
         animation-duration: 1ms;
         animation-range: entry contain;
-        z-index: -1;
     }
     & > h2 {
         grid-area: title;
