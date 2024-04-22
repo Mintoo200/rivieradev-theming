@@ -4,15 +4,19 @@
 }
 
 * {
+    box-sizing: border-box;
+}
+
+* {
     scroll-margin-block: 10dvh;
 }
 
 body {
     font-family: system-ui, sans-serif;
     --main-layout:
-            [full-width-start right-gutter-start]
+            [full-width-start left-gutter-start]
             var(--gutter-width)
-            [right-gutter-end content-start]
+            [left-gutter-end content-start]
             1fr
             [content-end right-gutter-start]
             var(--gutter-width)
@@ -43,8 +47,13 @@ h1 {
 h2 {
     font-size: 2em;
 }
-strong {
+strong, b, em {
     color: darkcyan;
+}
+button {
+    background-color: darkcyan;
+    color: white;
+    font-weight: bolder;
 }
 
 
@@ -208,4 +217,51 @@ footer {
     to {
         filter: blur(0);
     }
+}
+
+aside {
+    border: 1px solid darkcyan;
+    border-radius: 0 25px;
+    padding: 25px;
+    margin-block: 2rem;
+    & h2 {
+        margin: 0;
+    }
+    width: fit-content;
+    justify-self: center;
+}
+
+label {
+    position: relative;
+    display: block;
+    margin-bottom: -.6em;
+    margin-left: 1ch;
+    padding-inline: 1ch;
+    z-index: 1;
+    background-color: white;
+    width: fit-content;
+    font-weight: bold;
+}
+
+input, input + button {
+    height: 3em;
+    border-radius: 10px;
+    border: 2px solid darkcyan;
+}
+input:has(+ button) {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-right: none;
+}
+input + button {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border-left: none;
+}
+aside ul {
+    padding: 0;
+    list-style: none;
+}
+input[type="email"] {
+    min-width: 30ch;
 }

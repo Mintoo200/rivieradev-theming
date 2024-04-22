@@ -1,14 +1,18 @@
 <!DOCTYPE html>
 
-<!-- TODO (GAFI 18-04-2024):
+<!--
+TODO (GAFI 18-04-2024):
  - rework section layout for mobile viewport
  - hover effect on links
  - icons in footer
  - add padding in footer between name and social networks
- - switch from strong to em in headings ?
+ - switch from strong to em or b in headings ?
+ - add main 🤦
+ - Add `lang`
+ - Add "reviews" section ?
  -->
 
-<html lang="">
+<html lang="en">
 <head>
     <title>Test</title>
     <link rel="stylesheet" href="style.css">
@@ -120,6 +124,18 @@
     </p>
     <img src="/images/jake-blucker-vw2T320xLms-unsplash.webp" alt="">
 </section>
+<aside>
+    <h2>Newsletter</h2>
+    <ul>
+        <li>Expect around <b>0 mail per day</b></li>
+        <li><b>No useful information</b> whatsoever</li>
+        <li><b>100% newsletter content</b> guaranteed</li>
+    </ul>
+    <form action="/" method="post">
+        <label for="email">E-mail</label>
+        <input id="email" type="email" required><button>Subscribe</button>
+    </form>
+</aside>
 <footer>
     <nav aria-label="Informations supplémentaires">
         <ul>
