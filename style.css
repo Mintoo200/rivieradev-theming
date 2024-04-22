@@ -116,6 +116,23 @@ menu li {
         object-fit: cover;
         filter: blur(2px);
     }
+
+    view-timeline: --squash block;
+    animation-timeline: --squash;
+
+    animation-name: squash;
+    animation-fill-mode: both;
+    animation-duration: 1ms;
+    animation-range: exit 0% exit 25%;
+}
+
+@keyframes squash {
+    from {
+        height: 100dvh;
+    }
+    to {
+        height: 70dvh;
+    }
 }
 
 section {
