@@ -125,6 +125,11 @@ menu li {
         z-index: 1;
     }
 }
+svg {
+    height: 1lh;
+    padding: 2px;
+    fill: currentColor;
+}
 
 .landing {
     --gutter-width: 15%;
@@ -231,8 +236,8 @@ footer {
         justify-content: space-evenly;
         align-items: center;
     }
-    & nav > ul ul {
-
+    & nav li:has(> a:only-child > svg:only-child) {
+        display: inline;
     }
 }
 
