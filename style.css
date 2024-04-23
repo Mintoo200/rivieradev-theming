@@ -12,7 +12,6 @@
 }
 
 body {
-    font-family: system-ui, sans-serif;
     --main-layout:
             [full-width-start left-gutter-start]
             var(--gutter-width)
@@ -23,19 +22,31 @@ body {
             [right-gutter-end full-width-end];
     display: grid;
     grid-template-columns: var(--main-layout);
+    & > * {
+        grid-column: content;
+    }
+    & > header,
+    & > footer {
+        grid-column: full-width;
+    }
+}
+main {
+    grid-column: full-width;
+    display: grid;
+    grid-template-columns: var(--main-layout);
+    & > * {
+        grid-column: content;
+    }
+}
+
+body {
+    font-family: system-ui, sans-serif;
     margin: 0;
 }
+
 :target > :first-child::before {
     content: "# ";
     opacity: .5;
-}
-
-body > * {
-    grid-column: content;
-}
-body > header,
-body > footer {
-    grid-column: full-width;
 }
 
 h1, h2 {
