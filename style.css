@@ -44,6 +44,7 @@ body {
 :target > :first-child::before {
     content: "# ";
     opacity: .5;
+    font-weight: normal;
 }
 
 h1, h2 {
