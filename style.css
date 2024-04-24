@@ -52,14 +52,17 @@ h1, h2 {
 
 h1 {
     color: darkcyan;
+    font-size: 3.5rem;
 }
 
 h2 {
-    font-size: 2em;
+    font-size: 2.5rem;
+    font-weight: lighter;
 }
 
 strong, b, em {
     color: darkcyan;
+    font-weight: bolder;
 }
 
 button {
@@ -71,7 +74,7 @@ button {
 a:any-link {
     color: inherit;
     display: inline-block;
-    --background-color: darkcyan;
+    --background-color: hsl(215 100% 50%);
     text-decoration: none;
     position: relative;
 
@@ -119,8 +122,8 @@ menu {
     display: flex;
     justify-content: center;
     padding: 0 10%;
-    border-bottom: 1px solid black;
-    backdrop-filter: blur(2px);
+    border-bottom: 2px solid lightgrey;
+    backdrop-filter: blur(30px);
     background-color: hsla(0 100% 100% / .7);
 }
 
