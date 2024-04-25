@@ -171,15 +171,12 @@ svg {
 }
 
 .landing {
-    --gutter-width: 15%;
+    --gutter-width: 1fr;
     grid-column: full-width;
     min-height: 100dvh;
     display: grid;
-    grid-template-columns: var(--gutter-width) [content-start] 1fr [content-end] 1fr var(--gutter-width);
+    grid-template-columns: var(--gutter-width) [content-start] minmax(300px, 3fr) [content-end] 3fr var(--gutter-width);
     align-items: center;
-    & > h1 {
-        align-self: end;
-    }
 
     & > .content {
         grid-column: content;
@@ -264,21 +261,6 @@ section {
         & > img {
             grid-row: 1/-1;
             grid-column: image;
-        }
-
-        & > h2 {
-            margin: 0;
-            align-self: end;
-        }
-
-        & > small {
-            margin: 0;
-            align-self: start;
-        }
-
-        & > p {
-            margin: 0;
-            align-self: start;
         }
     }
 }
