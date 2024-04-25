@@ -60,6 +60,20 @@ h2 {
     font-size: 2.5rem;
     font-weight: lighter;
 }
+h2:first-child {
+    margin-top: 0;
+}
+h2:has(+ small) {
+    margin-bottom: 0;
+    & + small {
+        display: block;
+        margin-bottom: .83rem;
+    }
+}
+
+small {
+    color: grey;
+}
 
 strong, b, em {
     color: darkcyan;
@@ -185,7 +199,7 @@ svg {
         width: 100%;
         height: 100%;
         object-fit: cover;
-        filter: blur(2px);
+        filter: blur(2px) brightness(55%);
     }
 
     view-timeline: --squash block;
@@ -202,12 +216,11 @@ svg {
         min-height: 100dvh;
     }
     to {
-        min-height: 0;
+        min-height: 50dvh;
     }
 }
 
 section {
-    --gutter-width: 10%;
     grid-column: full-width;
     display: grid;
     grid-template-columns: var(--main-layout);
@@ -228,39 +241,42 @@ section {
         animation-duration: 1ms;
         animation-range: entry contain;
     }
-    & > * {
+    & > .content {
         grid-column: content;
+    }
+
+    & .content {
+        padding: 10%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
     }
 }
 @media (min-aspect-ratio: 1/1) {
     section {
-        grid-template-areas:
-            "photo title ."
-            "photo paragraph .";
-        grid-template-columns: 2fr 1fr var(--gutter-width);
-        grid-template-rows: auto auto;
-        gap: 3ch 1em;
+        grid-template-columns: [image-start] 50% [image-end content-start] 1fr [content-end];
         justify-items: start;
 
         &:nth-of-type(2n) {
-            grid-template-areas:
-            ". title photo"
-            ". paragraph photo";
-            grid-template-columns: var(--gutter-width) 1fr 2fr;
+            grid-template-columns: [content-start] 1fr [content-end image-start] 50% [image-end];
         }
 
         & > img {
-            grid-area: photo;
+            grid-row: 1/-1;
+            grid-column: image;
         }
 
         & > h2 {
-            grid-area: title;
             margin: 0;
             align-self: end;
         }
 
+        & > small {
+            margin: 0;
+            align-self: start;
+        }
+
         & > p {
-            grid-area: paragraph;
             margin: 0;
             align-self: start;
         }
@@ -285,6 +301,9 @@ footer {
 
     & nav li:has(> a:only-child > svg:only-child) {
         display: inline;
+    }
+    & small {
+        color: black;
     }
 }
 
