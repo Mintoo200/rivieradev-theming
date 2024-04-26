@@ -81,6 +81,10 @@ strong, b, em {
 }
 
 button {
+    --border-radius: 10px;
+    border-radius: var(--border-radius);
+    padding: 1rem 3ch;
+    border: none;
     background-color: darkcyan;
     color: white;
     font-weight: bolder;
@@ -248,6 +252,9 @@ section {
         flex-direction: column;
         justify-content: center;
     }
+    & button {
+        align-self: end;
+    }
 }
 @media (min-aspect-ratio: 1/1) {
     section {
@@ -340,6 +347,7 @@ input + button {
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
     border-left: none;
+    padding: 0 2ch;
 }
 
 aside ul {
