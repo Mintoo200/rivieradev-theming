@@ -248,7 +248,7 @@ section {
     display: grid;
     grid-template-columns: var(--main-layout);
 
-    & > img {
+    & > :not(.content) {
         grid-column: full-width;
 
         width: 100%;
@@ -287,7 +287,7 @@ section {
             grid-template-columns: [content-start] 1fr [content-end image-start] 50% [image-end];
         }
 
-        & > img {
+        & > :not(.content) {
             grid-row: 1/-1;
             grid-column: image;
         }
@@ -379,4 +379,38 @@ aside ul {
 
 input[type="email"] {
     min-width: 30ch;
+}
+
+.before-after {
+    position: relative;
+    & > * {
+        position: absolute;
+        inset: 0;
+    }
+    & > :first-child {
+        overflow: hidden;
+        width: 50%;
+        max-width: 100%;
+        resize: horizontal;
+        z-index: 1;
+
+    }
+    & pre {
+        background-color: white;
+        border: 1px solid black;
+        margin: 0;
+        clip: rect(0, auto, auto, 0);
+        & code {
+            position: fixed;
+            display: block;
+            inset: 0;
+            align-content: center;
+            text-align: center;
+        }
+        .theme {
+            display: inline-block;
+            text-align: center;
+            width: 5ch;
+        }
+    }
 }
