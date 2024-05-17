@@ -90,6 +90,11 @@ button {
     font-weight: bolder;
 }
 
+section p::first-letter {
+    font-size: 1.5em;
+    color: darkcyan;
+}
+
 a:any-link {
     color: inherit;
     display: inline-block;
