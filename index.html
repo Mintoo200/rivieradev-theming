@@ -9,6 +9,7 @@ TODO (GAFI 18-04-2024):
  - Use a primary color that does not work on dark background
  - Find a better <title>
  - Add actual favicon
+ - Add some kind of animation on the calls-to-action
  -->
 
 <html lang="en">
@@ -21,66 +22,58 @@ TODO (GAFI 18-04-2024):
     <div class="landing" lang="la">
         <img src="/images/jake-blucker-OQH-OtRvtwE-unsplash.webp" alt="">
         <div class="content">
-            <h1>Lorem Ipsum</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras sagittis malesuada est a pellentesque.
-                Suspendisse
-                ac
-                arcu magna. Vestibulum dapibus, <a href="#">ipsum vitae pharetra aliquam</a>, orci lorem molestie
-                turpis, molestie
-                consectetur
-                diam
-                orci eget ante. Aenean ex nibh, eleifend in pharetra in, viverra at nunc. Quisque semper vitae arcu ut
-                porttitor.
-            </p>
+            <h1>Theme</h1>
+            <blockquote cite="https://dictionary.cambridge.org/dictionary/english/theme">
+                <i>verb</i>
+                <p>To design something according to a particular theme, or to relate it to a particular place or time</p>
+                <cite>—Cambridge Dictionary</cite>
+            </blockquote>
         </div>
     </div>
     <nav lang="la">
         <menu>
-            <li><a href="#donec"><strong>Donec</strong> ac diam</a></li>
-            <li><a href="#ipsum">Ut dapibus <strong>ipsum</strong></a></li>
-            <li><a href="#risus"><strong>Risus</strong> vitae dictum</a></li>
-            <li><a href="#tellus">Nam sed <strong>tellus</strong> rutrum</a></li>
-            <li><a href="#sed"><strong>Sed</strong> ut erat</a></li>
+            <li><a href="#donec"><strong>What</strong> is <i>theming</i>?</a></li>
+            <li><a href="#ipsum">Is <i>theming</i> a <strong>good idea</strong>?</a></li>
+            <li><a href="#risus"><strong>Accessibility</strong>? What about it?</a></li>
+            <li><a href="#tellus">But it's <strong>haaaaaaard</strong>...!</a></li>
+            <li><a href="#sed">Wait... Does that mean <strong>you can</strong>...</a></li>
         </menu>
     </nav>
-    <section id="donec" lang="la">
+    <section id="donec">
         <img src="/images/jake-blucker-1e6fijNKg68-unsplash.webp" alt="">
         <div class="content">
-            <h2><strong>Donec</strong> ac diam</h2>
-            <small>Phasellus iaculis vestibulum tortor ac convallis.</small>
+            <h2><strong>What</strong> is <i>theming</i>?</h2>
+            <small>The art of letting the user choose how to enjoy your app</small>
             <p>
-                Donec ac diam et <a href="#">lectus posuere bibendum</a>. Phasellus iaculis vestibulum tortor ac
-                convallis.
-                Sed sit amet arcu
-                vitae
-                libero vulputate interdum. Pellentesque placerat lobortis magna, id aliquam sem convallis vel. Nam
-                finibus
-                elit
-                ut
-                mauris posuere auctor. Suspendisse vel eros erat. Duis in iaculis risus, eget ultrices dui.
+                A theme is a set of graphical assets to be used to define the visual aspect of a page or website.
+                When you hear "<dfn>theming</dfn>", it usually refers to the practice of letting the user choose parts of
+                the graphical interface of the application using pre-conceived sets of assets.
+                You'll often hear about dark and light themes, but the practice goes well beyond that with web
+                applications like <a href="https://monkeytype.com/">MonkeyType</a> providing more than a hundred themes
+                with features such as custom gradients, sounds and shapes, to name a few.
             </p>
-            <button>Eget Ultrices Dui</button>
+            <a class="call-to-action" href="https://en.wikipedia.org/wiki/Theme_(computing)">Learn more on Wikipedia</a>
         </div>
     </section>
     <section id="ipsum" lang="la">
         <img src="/images/jake-blucker-CFzWIQz4nPE-unsplash.webp" alt="">
         <div class="content">
-            <h2>Ut dapibus <strong>ipsum</strong></h2>
-            <small>Pellentesque fermentum enim at nisl euismod.</small>
+            <h2>Is <i>theming</i> a <strong>good idea</strong>?</h2>
+            <small>And should I care?</small>
             <p>
-                Ut dapibus ipsum eu consequat ornare. Pellentesque fermentum enim at nisl euismod, nec tempor arcu
-                fermentum.
-                Etiam
-                eu lorem ac sem pharetra imperdiet. Curabitur iaculis rutrum turpis.
+                Yes, and yes. Adding different themes comes with a lot of advantages.
+                It's pretty much all about letting the user enjoy your application however they prefer.
+                For example, matching the theme to the working environment; a user in a dim room might prefer a
+                darker theme to reduce eye strain whereas a user in a bright place might have a better time reading
+                on a lighter background. Pushing the reasoning further, adding themes can be a way to enhance the
+                accessibility of your application !
             </p>
         </div>
     </section>
     <section id="risus" lang="la">
         <img src="/images/jake-blucker-qcHbdMvpRMs-unsplash.webp" alt="">
         <div class="content">
-            <h2><strong>Risus</strong> vitae dictum</h2>
+            <h2><strong>Accessibility</strong>? What about it?</h2>
             <small>Sed mollis pulvinar eros non tincidunt.</small>
             <p>
                 Nunc dignissim eu risus vitae dictum. Sed mollis pulvinar eros non tincidunt. Vivamus convallis sodales
@@ -96,7 +89,7 @@ TODO (GAFI 18-04-2024):
     <section id="tellus" lang="la">
         <img src="/images/jake-blucker-tMzCrBkM99Y-unsplash.webp" alt="">
         <div class="content">
-            <h2>Nam sed <strong>tellus</strong> rutrum</h2>
+            <h2>But it's <strong>haaaaaaard</strong>...!</h2>
             <small>In eu congue justo, non consequat nunc.</small>
             <p>
                 Nam sed tellus rutrum, vehicula arcu id, <a href="#">tincidunt nisi</a>. Sed id elit ex. Curabitur
@@ -110,10 +103,51 @@ TODO (GAFI 18-04-2024):
             </p>
         </div>
     </section>
+    <section id="sed2" lang="la">
+        <div class="before-after">
+            <pre>
+<code>
+&lt;code data-theme="<span class="theme">dark</span>"&gt;...&lt;/code&gt;
+</code>
+            </pre>
+            <pre>
+<code>
+&lt;code data-theme="<span class="theme">light</span>"&gt;...&lt;/code&gt;
+</code>
+            </pre>
+        </div>
+        <div class="content">
+            <h2>Wait... Does that mean <strong>you can</strong>...</h2>
+            <small>Yes.</small>
+            <p>
+                Sed ut erat ac velit molestie ultrices. Sed eu blandit sem. Integer nec libero rhoncus, vestibulum
+                mauris a,
+                fermentum nibh. <a href="#">Duis auctor rutrum tempor</a>. Sed sed efficitur neque. Curabitur posuere,
+                ligula et sagittis
+                mollis,
+                est ipsum sodales tellus, sit amet placerat sem ante vitae risus.
+            </p>
+        </div>
+    </section>
+    <section id="sed3" lang="la">
+        <img src="/images/jake-blucker-vw2T320xLms-unsplash.webp" alt="">
+        <div class="content">
+            <h2><strong>And</strong>...</h2>
+            <small>Yes.</small>
+            <p>
+                Sed ut erat ac velit molestie ultrices. Sed eu blandit sem. Integer nec libero rhoncus, vestibulum
+                mauris a,
+                fermentum nibh. <a href="#">Duis auctor rutrum tempor</a>. Sed sed efficitur neque. Curabitur posuere,
+                ligula et sagittis
+                mollis,
+                est ipsum sodales tellus, sit amet placerat sem ante vitae risus.
+            </p>
+        </div>
+    </section>
     <section id="sed" lang="la">
         <img src="/images/jake-blucker-vw2T320xLms-unsplash.webp" alt="">
         <div class="content">
-            <h2><strong>Sed</strong> ut erat</h2>
+            <h2>Ok, I'm convinced. But what if I want to <strong>go farther</strong>?</h2>
             <small>Sed eu blandit sem.</small>
             <p>
                 Sed ut erat ac velit molestie ultrices. Sed eu blandit sem. Integer nec libero rhoncus, vestibulum

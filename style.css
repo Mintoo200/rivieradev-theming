@@ -95,7 +95,7 @@ section p::first-letter {
     color: darkcyan;
 }
 
-a:any-link {
+:any-link:not(.call-to-action) {
     color: inherit;
     display: inline-block;
     --background-color: hsl(215 100% 50%);
@@ -127,6 +127,23 @@ a:any-link {
     }
 }
 
+.call-to-action {
+    display: block;
+    background-color: darkcyan;
+    color: white;
+    border-radius: 10px;
+    width: fit-content;
+    padding: .75rem;
+    text-decoration: none;
+    &::after {
+        content: ">";
+        margin-inline-start: .5rem;
+        font-weight: bolder;
+    }
+}
+section .call-to-action {
+    align-self: end;
+}
 
 nav {
     grid-column: full-width;
@@ -151,7 +168,7 @@ menu {
     background-color: hsla(0 100% 100% / .7);
 }
 
-menu a:any-link {
+menu :any-link:not(.call-to-action) {
     --background-color: hsla(180deg 100% 27.25% / .2);
     display: block;
     padding: 1em;
