@@ -1,5 +1,5 @@
 :root {
-    --gutter-width: 20%;
+    --gutter-width: 10%;
     scroll-behavior: smooth;
 }
 
@@ -12,7 +12,14 @@
 }
 
 body {
-    --main-layout: [full-width-start left-gutter-start] var(--gutter-width) [left-gutter-end content-start] 1fr [content-end right-gutter-start] var(--gutter-width) [right-gutter-end full-width-end];
+    --main-layout:
+            [full-width-start left-gutter-start]
+            var(--gutter-width)
+            [left-gutter-end content-start]
+            1fr
+            [content-end right-gutter-start]
+            var(--gutter-width)
+            [right-gutter-end full-width-end];
     display: grid;
     grid-template-columns: var(--main-layout);
 
@@ -327,20 +334,6 @@ footer {
     }
 }
 
-aside {
-    border: 1px solid darkcyan;
-    border-radius: 0 25px;
-    padding: 25px;
-    margin-block: 2rem;
-
-    & h2 {
-        margin: 0;
-    }
-
-    width: fit-content;
-    justify-self: center;
-}
-
 label {
     position: relative;
     display: block;
@@ -353,19 +346,36 @@ label {
     font-weight: bold;
 }
 
-input, input + button {
-    height: 3em;
+textarea {
+    resize: vertical;
+}
+
+input,
+textarea {
+    width: 100%;
+}
+
+input,
+textarea,
+input:only-of-type + button {
+    padding: 1em;
     border-radius: 10px;
     border: 2px solid darkcyan;
 }
 
-input:has(+ button) {
+input,
+input:only-of-type + button {
+    height: 3em;
+}
+
+input:only-of-type:has(+ button) {
+    width: revert;
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
     border-right: none;
 }
 
-input + button {
+input:only-of-type + button {
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
     border-left: none;
@@ -413,4 +423,27 @@ input[type="email"] {
             width: 5ch;
         }
     }
+}
+
+aside {
+    border: 1px solid darkcyan;
+    border-radius: 0 25px;
+    &:nth-child(2n + 1) {
+        border-radius: 25px 0;
+    }
+    padding: 25px;
+    margin-block: 2rem;
+
+    & h2 {
+        margin: 0;
+    }
+
+    width: fit-content;
+    justify-self: center;
+}
+
+main > div {
+    display: grid;
+    grid-auto-columns: 1fr;
+    grid-template-columns: repeat(auto-fit, minmax(40ch, 1fr));
 }
