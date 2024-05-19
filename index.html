@@ -10,6 +10,7 @@ TODO (GAFI 18-04-2024):
  - Find a better <title>
  - Add actual favicon
  - Add some kind of animation on the calls-to-action
+ - add abbrs
  -->
 
 <html lang="en">
@@ -74,15 +75,18 @@ TODO (GAFI 18-04-2024):
         <img src="/images/jake-blucker-qcHbdMvpRMs-unsplash.webp" alt="">
         <div class="content">
             <h2><strong>Accessibility</strong>? What about it?</h2>
-            <small>Sed mollis pulvinar eros non tincidunt.</small>
+            <small>Oh my god! He used the <em>a-word</em>!</small>
             <p>
-                Nunc dignissim eu risus vitae dictum. Sed mollis pulvinar eros non tincidunt. Vivamus convallis sodales
-                leo,
-                sed
-                mattis ante luctus quis. <a href="#">Phasellus metus purus</a>, <a href="#">porta eget lorem id</a>, <a
-                    href="#">pretium aliquet mi</a>. Sed eleifend massa
-                magna,
-                ut lacinia massa molestie sit amet.
+                Let's get this right: Adding themes to your application won't <em>make</em> it accessible.
+                It might help... but that's about it. Colors are only a <em>small</em> part of
+                accessibility. Also, adding a theme to fix criterions
+                <a href="https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html">WCAG-1.4.3</a> or
+                <a href="https://accessibilite.numerique.gouv.fr/methode/criteres-et-tests/#3.2">RGAA-3.2</a> is,
+                out of all the possible fixes for these, the least user-friendly and sustainable.
+            </p>
+            <p>
+                That being said, for an already somewhat accessible application, providing additional themes might be
+                a great way to help color-blind users, who might not be aware of, or used to, assistive technologies.
             </p>
         </div>
     </section>
@@ -90,20 +94,33 @@ TODO (GAFI 18-04-2024):
         <img src="/images/jake-blucker-tMzCrBkM99Y-unsplash.webp" alt="">
         <div class="content">
             <h2>But it's <strong>haaaaaaard</strong>...!</h2>
-            <small>In eu congue justo, non consequat nunc.</small>
+            <small>Plus, I don't have time for this.</small>
             <p>
-                Nam sed tellus rutrum, vehicula arcu id, <a href="#">tincidunt nisi</a>. Sed id elit ex. Curabitur
-                lacinia
-                dolor in felis
-                tempus,
-                sit amet <a href="#">convallis est lacinia</a>. In eu congue justo, non consequat nunc. Aliquam
-                molestie, eros a venenatis
-                bibendum,
-                velit libero tristique mauris, ac efficitur tortor enim sit amet felis.
+                It's not that hard.
+                It relies heavily on the introduction of <a href="https://thedesignsystem.guide/design-tokens"><i>Design
+                Tokens</i></a> using <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/--*"><i>custom
+                properties</i></a>. And all of it is completely native to CSS, and
+                <a href="https://caniuse.com/css-variables">well-supported</a> to boot!
+                Basically, you declare variables and change their content using <i>Cascade</i>
+                (you know... the thing in <i>Cascading Style Sheet</i>) and
+                <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/data-*"><i>data
+                attributes</i></a>.
             </p>
         </div>
     </section>
     <section id="sed2" lang="la">
+        <img src="/images/jake-blucker-vw2T320xLms-unsplash.webp" alt="">
+        <div class="content">
+            <h2>Wait... Does that mean <strong>you can</strong>...</h2>
+            <small>Yes.</small>
+            <p>
+                Being solely CSS based, it means you can use any CSS feature as part of your themes.
+                You are no longer limited to changing colors and shapes, you can (not saying you should... but you can)
+                let your imagination run wild by changing layouts, pseudo-selectors and pseudo-classes, animations...
+            </p>
+        </div>
+    </section>
+    <section id="sed3" lang="la">
         <div class="before-after">
             <pre>
 <code>
@@ -117,45 +134,13 @@ TODO (GAFI 18-04-2024):
             </pre>
         </div>
         <div class="content">
-            <h2>Wait... Does that mean <strong>you can</strong>...</h2>
-            <small>Yes.</small>
-            <p>
-                Sed ut erat ac velit molestie ultrices. Sed eu blandit sem. Integer nec libero rhoncus, vestibulum
-                mauris a,
-                fermentum nibh. <a href="#">Duis auctor rutrum tempor</a>. Sed sed efficitur neque. Curabitur posuere,
-                ligula et sagittis
-                mollis,
-                est ipsum sodales tellus, sit amet placerat sem ante vitae risus.
-            </p>
-        </div>
-    </section>
-    <section id="sed3" lang="la">
-        <img src="/images/jake-blucker-vw2T320xLms-unsplash.webp" alt="">
-        <div class="content">
             <h2><strong>And</strong>...</h2>
             <small>Yes.</small>
             <p>
-                Sed ut erat ac velit molestie ultrices. Sed eu blandit sem. Integer nec libero rhoncus, vestibulum
-                mauris a,
-                fermentum nibh. <a href="#">Duis auctor rutrum tempor</a>. Sed sed efficitur neque. Curabitur posuere,
-                ligula et sagittis
-                mollis,
-                est ipsum sodales tellus, sit amet placerat sem ante vitae risus.
-            </p>
-        </div>
-    </section>
-    <section id="sed" lang="la">
-        <img src="/images/jake-blucker-vw2T320xLms-unsplash.webp" alt="">
-        <div class="content">
-            <h2>Ok, I'm convinced. But what if I want to <strong>go farther</strong>?</h2>
-            <small>Sed eu blandit sem.</small>
-            <p>
-                Sed ut erat ac velit molestie ultrices. Sed eu blandit sem. Integer nec libero rhoncus, vestibulum
-                mauris a,
-                fermentum nibh. <a href="#">Duis auctor rutrum tempor</a>. Sed sed efficitur neque. Curabitur posuere,
-                ligula et sagittis
-                mollis,
-                est ipsum sodales tellus, sit amet placerat sem ante vitae risus.
+                Given that the current theme is defined using a data attribute;
+                and that data attributes can be used on any HTML element,
+                you actually can set the theme of pretty much any part of you application completely independently.
+                Particularly useful for design systems documentation or technical demonstrations!
             </p>
         </div>
     </section>

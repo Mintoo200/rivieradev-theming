@@ -136,7 +136,7 @@ section p::first-letter {
     padding: .75rem;
     text-decoration: none;
     &::after {
-        content: ">";
+        content: "→";
         margin-inline-start: .5rem;
         font-weight: bolder;
     }
