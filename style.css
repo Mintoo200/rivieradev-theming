@@ -446,4 +446,16 @@ main > div {
     display: grid;
     grid-auto-columns: 1fr;
     grid-template-columns: repeat(auto-fit, minmax(40ch, 1fr));
+
+::selection {
+    background-color: darkcyan;
+    color: white;
+}
+:any-link::selection {
+    text-decoration: underline;
+}
+.call-to-action::selection {
+    text-decoration: none;
+    background-color: white;
+    color: darkcyan;
 }
