@@ -190,6 +190,7 @@ menu :any-link:not(.call-to-action) {
     --background-color: hsla(180deg 100% 27.25% / .2);
     display: block;
     padding: 1em;
+    height: 100%;
 }
 
 menu li {
