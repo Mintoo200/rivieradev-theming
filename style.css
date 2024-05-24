@@ -137,9 +137,17 @@ section p::first-letter {
     }
 }
 
-.call-to-action {
+.call-to-action, button {
     display: block;
-    background-color: darkcyan;
+    background-image: linear-gradient(to bottom right, #074742, #249c52);
+    background-size: 200%;
+    transition:
+            background-position 100ms linear,
+            box-shadow 100ms linear;
+    &:hover, &:focus-visible {
+        background-position: 100% 100%;
+        box-shadow: inset 0 0 8px #1f1f1f;
+    }
     color: white;
     border-radius: 10px;
     width: fit-content;
