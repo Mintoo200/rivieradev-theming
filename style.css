@@ -363,13 +363,29 @@ input:only-of-type + button {
     height: 3em;
 }
 
+form:has(input:only-of-type + button) {
+    display: grid;
+    grid-template-columns:
+            [full-content-start input-start]
+            1fr
+            [input-end button-start]
+            auto
+            [button-end full-content-end];
+    & > * {
+        grid-column: full-content;
+    }
+    & > input:only-of-type {
+        grid-column: input;
+    }
+    & > input:only-of-type + button {
+        grid-column: button;
+    }
+}
 input:only-of-type:has(+ button) {
-    width: revert;
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
     border-right: none;
 }
-
 input:only-of-type + button {
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
@@ -398,7 +414,6 @@ input[type="email"] {
         max-width: 100%;
         resize: horizontal;
         z-index: 1;
-
     }
     & pre {
         background-color: white;
@@ -427,7 +442,6 @@ aside {
         border-radius: 25px 0;
     }
     padding: 25px;
-    margin-block: 2rem;
 
     & h2 {
         margin: 0;
@@ -438,9 +452,14 @@ aside {
 }
 
 main > div {
-    display: grid;
-    grid-auto-columns: 1fr;
-    grid-template-columns: repeat(auto-fit, minmax(40ch, 1fr));
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5ch;
+    & > * {
+        flex: 1;
+    }
+    margin-block: 2rem;
+}
 
 ::selection {
     background-color: darkcyan;
