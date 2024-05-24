@@ -1,17 +1,21 @@
 :root {
-    --gutter-width: 10%;
-    scroll-behavior: smooth;
+    background-color: white;
+    color: black;
 }
 
 * {
     box-sizing: border-box;
 }
 
-* {
-    scroll-margin-block: 10dvh;
+:root {
+    scroll-behavior: smooth;
+    & * {
+        scroll-margin-block: 10dvh;
+    }
 }
 
 body {
+    --gutter-width: 10%;
     --main-layout:
             [full-width-start left-gutter-start]
             var(--gutter-width)
