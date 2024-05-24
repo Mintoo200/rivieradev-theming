@@ -48,7 +48,7 @@ body {
     margin: 0;
 }
 
-:target > :first-child::before {
+:target h2::before {
     content: "# ";
     opacity: .5;
     font-weight: normal;
@@ -149,7 +149,7 @@ section p::first-letter {
     }
 }
 section .call-to-action {
-    align-self: end;
+    margin-left: auto;
 }
 
 nav {
@@ -254,6 +254,7 @@ section {
     grid-column: full-width;
     display: grid;
     grid-template-columns: var(--main-layout);
+    align-items: center;
 
     & > :not(.content) {
         grid-column: full-width;
@@ -277,12 +278,6 @@ section {
 
     & .content {
         padding: 10%;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-    }
-    & button {
-        align-self: end;
     }
 }
 @media (min-aspect-ratio: 1/1) {
