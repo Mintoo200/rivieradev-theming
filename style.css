@@ -86,7 +86,7 @@ small {
 }
 
 strong, b, em {
-    color: darkcyan;
+    color: hsl(143, 63%, 26%);
     font-weight: bolder;
 }
 
@@ -95,14 +95,14 @@ button {
     border-radius: var(--border-radius);
     padding: 1rem 3ch;
     border: none;
-    background-color: darkcyan;
+    background-color: hsl(143, 63%, 26%);
     color: white;
     font-weight: bolder;
 }
 
 section p::first-letter {
     font-size: 1.5em;
-    color: darkcyan;
+    color: hsl(143, 63%, 26%);
 }
 
 :any-link:not(.call-to-action) {
@@ -139,7 +139,7 @@ section p::first-letter {
 
 .call-to-action, button {
     display: block;
-    background-image: linear-gradient(to bottom right, #074742, #249c52);
+    background-image: linear-gradient(to bottom right, hsl(175, 82%, 15%), hsl(143, 63%, 38%));
     background-size: 200%;
     transition:
             background-position 100ms linear,
@@ -368,7 +368,7 @@ textarea,
 input:only-of-type + button {
     padding: 1em;
     border-radius: 10px;
-    border: 2px solid darkcyan;
+    border: 2px solid hsl(143, 63%, 26%);
 }
 
 input,
@@ -449,7 +449,7 @@ input[type="email"] {
 }
 
 aside {
-    border: 1px solid darkcyan;
+    border: 1px solid hsl(143, 63%, 26%);
     border-radius: 0 25px;
     &:nth-child(2n + 1) {
         border-radius: 25px 0;
@@ -475,7 +475,7 @@ main > div {
 }
 
 ::selection {
-    background-color: darkcyan;
+    background-color: hsl(143, 63%, 26%);
     color: white;
 }
 :any-link::selection {
@@ -484,5 +484,5 @@ main > div {
 .call-to-action::selection {
     text-decoration: none;
     background-color: white;
-    color: darkcyan;
+    color: hsl(143, 63%, 26%);
 }
