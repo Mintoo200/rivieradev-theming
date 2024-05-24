@@ -210,6 +210,7 @@ svg {
     display: grid;
     grid-template-columns: var(--gutter-width) [content-start] minmax(300px, 3fr) [content-end] 3fr var(--gutter-width);
     align-items: center;
+    margin: 0;
 
     & > .content {
         grid-column: content;
