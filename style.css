@@ -59,8 +59,11 @@ h1, h2 {
 }
 
 h1 {
-    color: darkcyan;
+    color: transparent;
+    background-image: linear-gradient(to bottom right, #0d776e, #38ef7d);
+    background-clip: text;
     font-size: 3.5rem;
+    width: fit-content;
 }
 
 h2 {
