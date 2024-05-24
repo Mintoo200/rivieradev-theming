@@ -354,7 +354,6 @@ footer {
 label {
     position: relative;
     display: block;
-    margin-bottom: -.6em;
     margin-left: 1ch;
     padding-inline: 1ch;
     z-index: 1;
@@ -370,6 +369,7 @@ textarea {
 input,
 textarea {
     width: 100%;
+    display: block;
 }
 
 input,
@@ -383,6 +383,20 @@ input:only-of-type + button {
 input,
 input:only-of-type + button {
     height: 3em;
+}
+
+form button:not([type]:not([type="submit"])) {
+    margin-left: auto;
+}
+
+form {
+    --label-inset: -.6em;
+    & button {
+        margin-top: calc(1lh + var(--label-inset));
+    }
+    & label {
+        margin-bottom: var(--label-inset);
+    }
 }
 
 form:has(input:only-of-type + button) {
@@ -413,6 +427,7 @@ input:only-of-type + button {
     border-bottom-left-radius: 0;
     border-left: none;
     padding: 0 2ch;
+    margin-top: 0;
 }
 
 aside ul {
