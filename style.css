@@ -1,305 +1,384 @@
-:root {
-    background-color: white;
-    color: black;
-}
-
-* {
-    box-sizing: border-box;
-}
-
-body {
-    font-family: system-ui, sans-serif;
-    margin: 0;
-}
-
-:target h2::before {
-    content: "# ";
-    opacity: .5;
-    font-weight: normal;
-}
-
-h1 {
-    color: transparent;
-    background-image: linear-gradient(to bottom right, #0d776e, #38ef7d);
-    background-clip: text;
-    font-size: 3.5rem;
-    width: fit-content;
-}
-
-h2 {
-    font-size: 2.5rem;
-    font-weight: lighter;
-}
-h2:first-child {
-    margin-top: 0;
-}
-h2:has(+ small) {
-    margin-bottom: 0;
-    & + small {
-        display: block;
-        margin-bottom: .83rem;
+@layer {
+    :root {
+        background-color: white;
+        color: black;
     }
-}
-
-small {
-    color: grey;
-}
-
-strong, b, em {
-    color: hsl(143, 63%, 26%);
-    font-weight: bolder;
-}
-
-button {
-    border-radius: 10px;
-    padding: 1rem 3ch;
-    border: none;
-    background-color: hsl(143, 63%, 26%);
-    color: white;
-    font-weight: bolder;
-}
-
-section p::first-letter {
-    font-size: 1.5em;
-    color: hsl(143, 63%, 26%);
-}
-
-:any-link:not(.call-to-action) {
-    color: inherit;
-    display: inline-block;
-    --decoration-color: hsl(215 100% 50%);
-
-    menu & {
-        --decoration-color: hsla(180deg 100% 27.25% / .2);
+    :root {
+        scroll-behavior: smooth;
+        & * {
+            scroll-margin-block: 10dvh;
+        }
+    }
+    * {
+        box-sizing: border-box;
     }
 
-    text-decoration: none;
-    position: relative;
-
-    &:visited::before {
-        /* For privacy reasons, unable to use variable here (https://developer.mozilla.org/en-US/docs/Web/CSS/Privacy_and_the_:visited_selector) */
-        background-color: hsl(246, 100%, 80%);
+    body {
+        font-family: system-ui, sans-serif;
+        margin: 0;
     }
 
-    &::before {
-        position: absolute;
-        content: "";
-        background-color: var(--decoration-color);
-        bottom: 0;
-        left: 0;
-        right: 0;
-        height: 2px;
+    :target h2::before {
+        content: "# ";
+        opacity: .5;
+        font-weight: normal;
     }
-}
 
-.call-to-action, button {
-    display: block;
-    background-image: linear-gradient(to bottom right, hsl(175, 82%, 15%), hsl(143, 63%, 38%));
-    color: white;
-    border-radius: 10px;
-    width: fit-content;
-    padding: .75rem;
-    text-decoration: none;
-    &::after {
-        content: "→";
-        content: "→" / "";
-        margin-inline-start: .5rem;
+    h1 {
+        color: transparent;
+        background-image: linear-gradient(to bottom right, #0d776e, #38ef7d);
+        background-clip: text;
+        font-size: 3.5rem;
+        width: fit-content;
+    }
+
+    h2 {
+        font-size: 2.5rem;
+        font-weight: lighter;
+    }
+    h2:first-child {
+        margin-top: 0;
+    }
+    h2:has(+ small) {
+        margin-bottom: 0;
+        & + small {
+            display: block;
+            margin-bottom: .83rem;
+        }
+    }
+
+    small {
+        color: grey;
+    }
+
+    strong, b, em {
+        color: hsl(143, 63%, 26%);
         font-weight: bolder;
     }
-}
 
-nav ul,
-menu {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-menu {
-    border-bottom: 2px solid lightgrey;
-    backdrop-filter: blur(30px);
-    background-color: hsla(0 100% 100% / .7);
-}
-
-menu :any-link {
-    display: block;
-    padding: 1em;
-    height: 100%;
-}
-
-menu li {
-    position: relative;
-
-    &:not(:last-child)::after {
-        content: "";
-        position: absolute;
-        right: 0;
-        top: 15%;
-        bottom: 15%;
-        border: 1px solid hsl(180deg 29.23% 87.25%);
-        border-radius: 50%;
-        translate: 50%;
-        z-index: 1;
+    button {
+        border-radius: 10px;
+        padding: 1rem 3ch;
+        border: none;
+        background-color: hsl(143, 63%, 26%);
+        color: white;
+        font-weight: bolder;
     }
-}
 
-svg {
-    height: 1lh;
-    padding: 2px;
-    fill: currentColor;
-}
-
-.landing {
-    color: white;
-
-    & > img {
-        object-fit: cover;
-        filter: blur(2px) brightness(55%);
+    section p::first-letter {
+        font-size: 1.5em;
+        color: hsl(143, 63%, 26%);
     }
-}
 
-section {
-    & > :not(.content) {
-        width: 100%;
-        height: 100%;
-        aspect-ratio: 16/9;
-        object-fit: cover;
-    }
-    & .content {
-        padding: 10%;
-    }
-}
-
-footer {
-    text-align: center;
-    border-top: 2px solid hsla(180deg 100% 27.25% / .2);
-    background-color: hsla(180deg 100% 27.25% / .05);
-    padding: 1em 5%;
-
-    & nav li:has(> a:only-child > svg:only-child) {
-        display: inline;
-    }
-    & small {
+    :any-link:not(.call-to-action) {
         color: inherit;
+        display: inline-block;
+        --decoration-color: hsl(215 100% 50%);
+
+        menu & {
+            --decoration-color: hsla(180deg 100% 27.25% / .2);
+        }
+
+        text-decoration: none;
+        position: relative;
+
+        &:visited::before {
+            /* For privacy reasons, unable to use variable here (https://developer.mozilla.org/en-US/docs/Web/CSS/Privacy_and_the_:visited_selector) */
+            background-color: hsl(246, 100%, 80%);
+        }
+
+        &::before {
+            position: absolute;
+            content: "";
+            background-color: var(--decoration-color);
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+        }
     }
-}
 
-label {
-    position: relative;
-    display: block;
-    margin-left: 1ch;
-    padding-inline: 1ch;
-    z-index: 1;
-    background-color: white;
-    width: fit-content;
-    font-weight: bold;
-}
-
-textarea {
-    resize: vertical;
-}
-
-input,
-textarea {
-    width: 100%;
-    display: block;
-}
-
-input,
-textarea,
-input:only-of-type + button {
-    padding: 1em;
-    border-radius: 10px;
-    border: 2px solid hsl(143, 63%, 26%);
-}
-
-input,
-input:only-of-type + button {
-    height: 3em;
-}
-
-input:only-of-type:has(+ button) {
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
-    border-right: none;
-}
-input:only-of-type + button {
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
-    border-left: none;
-    padding: 0 2ch;
-    margin-top: 0;
-}
-
-aside ul {
-    padding: 0;
-    list-style: none;
-}
-
-input[type="email"] {
-    min-width: 30ch;
-}
-
-.before-after {
-    position: relative;
-    & > * {
-        position: absolute;
-        inset: 0;
+    .call-to-action, button {
+        display: block;
+        background-image: linear-gradient(to bottom right, hsl(175, 82%, 15%), hsl(143, 63%, 38%));
+        color: white;
+        border-radius: 10px;
+        width: fit-content;
+        padding: .75rem;
+        text-decoration: none;
+        &::after {
+            content: "→";
+            content: "→" / "";
+            margin-inline-start: .5rem;
+            font-weight: bolder;
+        }
     }
-    & > :first-child {
-        overflow: hidden;
-        width: 50%;
-        max-width: 100%;
-        resize: horizontal;
+
+    nav ul,
+    menu {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    menu {
+        border-bottom: 2px solid lightgrey;
+        backdrop-filter: blur(30px);
+        background-color: hsla(0 100% 100% / .7);
+    }
+
+    menu :any-link {
+        display: block;
+        padding: 1em;
+        height: 100%;
+        width: 100%;
+    }
+
+    menu li {
+        position: relative;
+
+        &:not(:last-child)::after {
+            content: "";
+            position: absolute;
+            right: 0;
+            top: 15%;
+            bottom: 15%;
+            border: 1px solid hsl(180deg 29.23% 87.25%);
+            border-radius: 50%;
+            translate: 50%;
+            z-index: 1;
+        }
+    }
+
+    svg {
+        height: 1lh;
+        padding: 2px;
+        fill: currentColor;
+    }
+
+    .landing {
+        color: white;
+
+        & > img {
+            object-fit: cover;
+            filter: blur(2px) brightness(55%);
+        }
+    }
+
+    section {
+        & > :not(.content) {
+            width: 100%;
+            height: 100%;
+            aspect-ratio: 16/9;
+            object-fit: cover;
+        }
+        & .content {
+            padding: 10%;
+        }
+    }
+
+    footer {
+        text-align: center;
+        border-top: 2px solid hsla(180deg 100% 27.25% / .2);
+        background-color: hsla(180deg 100% 27.25% / .05);
+        padding: 1em 5%;
+
+        & nav li:has(> a:only-child > svg:only-child) {
+            display: inline;
+        }
+        & small {
+            color: inherit;
+        }
+    }
+
+    label {
+        position: relative;
+        display: block;
+        margin-left: 1ch;
+        padding-inline: 1ch;
         z-index: 1;
-    }
-    & pre {
         background-color: white;
-        border: 1px solid black;
-        margin: 0;
-        clip: rect(0, auto, auto, 0);
-        & code {
-            position: fixed;
-            display: block;
+        width: fit-content;
+        font-weight: bold;
+    }
+
+    textarea {
+        resize: vertical;
+    }
+
+    input,
+    textarea {
+        width: 100%;
+        display: block;
+    }
+
+    input,
+    textarea,
+    input:only-of-type + button {
+        padding: 1em;
+        border-radius: 10px;
+        border: 2px solid hsl(143, 63%, 26%);
+    }
+
+    input,
+    input:only-of-type + button {
+        height: 3em;
+    }
+
+    input:only-of-type:has(+ button) {
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+        border-right: none;
+    }
+    input:only-of-type + button {
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+        border-left: none;
+        padding: 0 2ch;
+        margin-top: 0;
+    }
+
+    aside ul {
+        padding: 0;
+        list-style: none;
+    }
+
+    input[type="email"] {
+        min-width: 30ch;
+    }
+
+    .before-after {
+        position: relative;
+        & > * {
+            position: absolute;
             inset: 0;
-            align-content: center;
-            text-align: center;
         }
-        .theme {
-            display: inline-block;
-            text-align: center;
-            width: 5ch;
+        & > :first-child {
+            overflow: hidden;
+            width: 50%;
+            max-width: 100%;
+            resize: horizontal;
+            z-index: 1;
+        }
+        & pre {
+            background-color: white;
+            border: 1px solid black;
+            margin: 0;
+            clip: rect(0, auto, auto, 0);
+            & code {
+                position: fixed;
+                display: block;
+                inset: 0;
+                align-content: center;
+                text-align: center;
+            }
+            .theme {
+                display: inline-block;
+                text-align: center;
+                width: 5ch;
+            }
         }
     }
-}
 
-aside {
-    border: 1px solid hsl(143, 63%, 26%);
-    border-radius: 0 25px;
-    &:nth-child(2n + 1) {
-        border-radius: 25px 0;
+    aside {
+        border: 1px solid hsl(143, 63%, 26%);
+        border-radius: 0 25px;
+        &:nth-child(2n + 1) {
+            border-radius: 25px 0;
+        }
+        padding: 25px;
+
+        & h2 {
+            margin: 0;
+        }
+
+        width: fit-content;
+        justify-self: center;
     }
-    padding: 25px;
 
-    & h2 {
-        margin: 0;
+    ::selection {
+        background-color: hsl(143, 63%, 26%);
+        color: white;
+    }
+    :any-link::selection {
+        text-decoration: underline;
+    }
+    .call-to-action::selection {
+        text-decoration: none;
+        background-color: white;
+        color: hsl(143, 63%, 26%);
+    }
+}
+
+@layer animations {
+    .landing {
+        view-timeline: --squash block;
+        animation-timeline: --squash;
+
+        animation-name: squash;
+        animation-fill-mode: both;
+        animation-duration: 1ms;
+        animation-range: exit 0% exit 100%;
     }
 
-    width: fit-content;
-    justify-self: center;
-}
+    @keyframes squash {
+        from {
+            min-height: 100dvh;
+        }
+        to {
+            /* FIXME (GAFI 14-06-2024): Add variable ? */
+            min-height: 50dvh;
+        }
+    }
 
-::selection {
-    background-color: hsl(143, 63%, 26%);
-    color: white;
-}
-:any-link::selection {
-    text-decoration: underline;
-}
-.call-to-action::selection {
-    text-decoration: none;
-    background-color: white;
-    color: hsl(143, 63%, 26%);
+    section > :not(.content) {
+        view-timeline: --subjectReveal block;
+        animation-timeline: --subjectReveal;
+
+        animation-name: sharpen;
+        animation-fill-mode: both;
+        animation-duration: 1ms;
+        animation-range: entry contain;
+    }
+
+    @keyframes sharpen {
+        from {
+            filter: blur(10px);
+        }
+        to {
+            filter: blur(0);
+        }
+    }
+
+    .call-to-action, button {
+        background-size: 200%;
+        transition: background-position 100ms linear,
+        box-shadow 100ms linear;
+
+        &:hover, &:focus-visible {
+            background-position: 100% 100%;
+            box-shadow: inset 0 0 8px #1f1f1f;
+        }
+    }
+
+    :any-link:not(.call-to-action) {
+        &::before {
+            z-index: -1;
+            transition: height 100ms linear;
+        }
+
+        &:hover::before,
+        &:focus-visible::before {
+            height: 100%;
+        }
+
+        &:hover,
+        &:focus-visible,
+        &:hover *,
+        &:focus-visible * {
+            color: inherit;
+        }
+    }
 }
 
 @layer layout {
@@ -338,15 +417,17 @@ aside {
 
     nav {
         grid-column: full-width;
-        position: sticky;
         top: 0;
         z-index: 1;
-    }
-
-    menu {
-        display: flex;
-        justify-content: center;
-        padding: 0 10%;
+        @media (width > 750px) {
+            & {
+                position: sticky;
+            }
+            & menu {
+                display: flex;
+                padding: 0 10%;
+            }
+        }
     }
 
     section .call-to-action {
@@ -457,86 +538,6 @@ aside {
         }
         & > input:only-of-type + button {
             grid-column: button;
-        }
-    }
-}
-
-@layer scroll {
-    :root {
-        scroll-behavior: smooth;
-        & * {
-            scroll-margin-block: 10dvh;
-        }
-    }
-}
-
-@layer animations {
-    .landing {
-        view-timeline: --squash block;
-        animation-timeline: --squash;
-
-        animation-name: squash;
-        animation-fill-mode: both;
-        animation-duration: 1ms;
-        animation-range: exit 0% exit 100%;
-    }
-
-    @keyframes squash {
-        from {
-            min-height: 100dvh;
-        }
-        to {
-            /* FIXME (GAFI 14-06-2024): Add variable ? */
-            min-height: 50dvh;
-        }
-    }
-
-    section > :not(.content) {
-        view-timeline: --subjectReveal block;
-        animation-timeline: --subjectReveal;
-
-        animation-name: sharpen;
-        animation-fill-mode: both;
-        animation-duration: 1ms;
-        animation-range: entry contain;
-    }
-
-    @keyframes sharpen {
-        from {
-            filter: blur(10px);
-        }
-        to {
-            filter: blur(0);
-        }
-    }
-
-    .call-to-action, button {
-        background-size: 200%;
-        transition: background-position 100ms linear,
-        box-shadow 100ms linear;
-
-        &:hover, &:focus-visible {
-            background-position: 100% 100%;
-            box-shadow: inset 0 0 8px #1f1f1f;
-        }
-    }
-
-    :any-link:not(.call-to-action) {
-        &::before {
-            z-index: -1;
-            transition: height 100ms linear;
-        }
-
-        &:hover::before,
-        &:focus-visible::before {
-            height: 100%;
-        }
-
-        &:hover,
-        &:focus-visible,
-        &:hover *,
-        &:focus-visible * {
-            color: inherit;
         }
     }
 }
