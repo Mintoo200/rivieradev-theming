@@ -7,46 +7,6 @@
     box-sizing: border-box;
 }
 
-:root {
-    scroll-behavior: smooth;
-    & * {
-        scroll-margin-block: 10dvh;
-    }
-}
-
-body {
-    --gutter-width: 10%;
-    --main-layout:
-            [full-width-start left-gutter-start]
-            var(--gutter-width)
-            [left-gutter-end content-start]
-            1fr
-            [content-end right-gutter-start]
-            var(--gutter-width)
-            [right-gutter-end full-width-end];
-    display: grid;
-    grid-template-columns: var(--main-layout);
-
-    & > * {
-        grid-column: content;
-    }
-
-    & > header,
-    & > footer {
-        grid-column: full-width;
-    }
-}
-
-main {
-    grid-column: full-width;
-    display: grid;
-    grid-template-columns: var(--main-layout);
-
-    & > * {
-        grid-column: content;
-    }
-}
-
 body {
     font-family: system-ui, sans-serif;
     margin: 0;
@@ -56,10 +16,6 @@ body {
     content: "# ";
     opacity: .5;
     font-weight: normal;
-}
-
-h1, h2 {
-    text-align: left;
 }
 
 h1 {
@@ -95,8 +51,7 @@ strong, b, em {
 }
 
 button {
-    --border-radius: 10px;
-    border-radius: var(--border-radius);
+    border-radius: 10px;
     padding: 1rem 3ch;
     border: none;
     background-color: hsl(143, 63%, 26%);
@@ -112,20 +67,22 @@ section p::first-letter {
 :any-link:not(.call-to-action) {
     color: inherit;
     display: inline-block;
-    --background-color: hsl(215 100% 50%);
+    --decoration-color: hsl(215 100% 50%);
+    menu & {
+        --decoration-color: hsla(180deg 100% 27.25% / .2);
+    }
     text-decoration: none;
     position: relative;
 
     &:visited::before {
-        /* NOTE (GAFI 24-05-2024): For privacy reasons, unable to use variable here
-            (https://developer.mozilla.org/en-US/docs/Web/CSS/Privacy_and_the_:visited_selector) */
+        /* For privacy reasons, unable to use variable here (https://developer.mozilla.org/en-US/docs/Web/CSS/Privacy_and_the_:visited_selector) */
         background-color: hsl(246, 100%, 80%);
     }
     &::before {
         z-index: -1;
         position: absolute;
         content: "";
-        background-color: var(--background-color);
+        background-color: var(--decoration-color);
         bottom: 0;
         left: 0;
         right: 0;
@@ -164,19 +121,10 @@ section p::first-letter {
     text-decoration: none;
     &::after {
         content: "→";
+        content: "→" / "";
         margin-inline-start: .5rem;
         font-weight: bolder;
     }
-}
-section .call-to-action {
-    margin-left: auto;
-}
-
-nav {
-    grid-column: full-width;
-    position: sticky;
-    top: 0;
-    z-index: 1;
 }
 
 nav ul,
@@ -187,16 +135,12 @@ menu {
 }
 
 menu {
-    display: flex;
-    justify-content: center;
-    padding: 0 10%;
     border-bottom: 2px solid lightgrey;
     backdrop-filter: blur(30px);
     background-color: hsla(0 100% 100% / .7);
 }
 
-menu :any-link:not(.call-to-action) {
-    --background-color: hsla(180deg 100% 27.25% / .2);
+menu :any-link {
     display: block;
     padding: 1em;
     height: 100%;
@@ -225,31 +169,9 @@ svg {
 }
 
 .landing {
-    --gutter-width: 1fr;
-    grid-column: full-width;
-    min-height: 100dvh;
-    display: grid;
-    grid-template-columns: var(--gutter-width) [content-start] minmax(300px, 3fr) [content-end] 3fr var(--gutter-width);
-    align-items: center;
-    margin: 0;
-
-    & > .content {
-        grid-column: content;
-        display: flex;
-        flex-direction: column;
-    }
-
-    position: relative;
     color: white;
-    justify-items: end;
 
     & > img {
-        grid-column: 1 / -1;
-        position: absolute;
-        inset: 0;
-        z-index: -1;
-        width: 100%;
-        height: 100%;
         object-fit: cover;
         filter: blur(2px) brightness(55%);
     }
@@ -268,19 +190,13 @@ svg {
         min-height: 100dvh;
     }
     to {
+        /* FIXME (GAFI 14-06-2024): Add variable ? */
         min-height: 50dvh;
     }
 }
 
 section {
-    grid-column: full-width;
-    display: grid;
-    grid-template-columns: var(--main-layout);
-    align-items: center;
-
     & > :not(.content) {
-        grid-column: full-width;
-
         width: 100%;
         height: 100%;
         aspect-ratio: 16/9;
@@ -294,51 +210,8 @@ section {
         animation-duration: 1ms;
         animation-range: entry contain;
     }
-    & > .content {
-        grid-column: content;
-    }
-
     & .content {
         padding: 10%;
-    }
-}
-@media (min-aspect-ratio: 1/1) {
-    section {
-        grid-template-columns: [image-start] 50% [image-end content-start] 1fr [content-end];
-        justify-items: start;
-
-        &:nth-of-type(2n) {
-            grid-template-columns: [content-start] 1fr [content-end image-start] 50% [image-end];
-        }
-
-        & > :not(.content) {
-            grid-row: 1/-1;
-            grid-column: image;
-        }
-    }
-}
-
-
-footer {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    border-top: 2px solid hsla(180deg 100% 27.25% / .2);
-    background-color: hsla(180deg 100% 27.25% / .05);
-    padding: 1em 5%;
-    gap: 1em;
-
-    & nav > ul {
-        display: flex;
-        justify-content: space-evenly;
-        align-items: center;
-    }
-
-    & nav li:has(> a:only-child > svg:only-child) {
-        display: inline;
-    }
-    & small {
-        color: inherit;
     }
 }
 
@@ -348,6 +221,20 @@ footer {
     }
     to {
         filter: blur(0);
+    }
+}
+
+footer {
+    text-align: center;
+    border-top: 2px solid hsla(180deg 100% 27.25% / .2);
+    background-color: hsla(180deg 100% 27.25% / .05);
+    padding: 1em 5%;
+
+    & nav li:has(> a:only-child > svg:only-child) {
+        display: inline;
+    }
+    & small {
+        color: inherit;
     }
 }
 
@@ -385,38 +272,6 @@ input:only-of-type + button {
     height: 3em;
 }
 
-form button:not([type]:not([type="submit"])) {
-    margin-left: auto;
-}
-
-form {
-    --label-inset: -.6em;
-    & button {
-        margin-top: calc(1lh + var(--label-inset));
-    }
-    & label {
-        margin-bottom: var(--label-inset);
-    }
-}
-
-form:has(input:only-of-type + button) {
-    display: grid;
-    grid-template-columns:
-            [full-content-start input-start]
-            1fr
-            [input-end button-start]
-            auto
-            [button-end full-content-end];
-    & > * {
-        grid-column: full-content;
-    }
-    & > input:only-of-type {
-        grid-column: input;
-    }
-    & > input:only-of-type + button {
-        grid-column: button;
-    }
-}
 input:only-of-type:has(+ button) {
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
@@ -488,16 +343,6 @@ aside {
     justify-self: center;
 }
 
-main > div {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 5ch;
-    & > * {
-        flex: 1;
-    }
-    margin-block: 2rem;
-}
-
 ::selection {
     background-color: hsl(143, 63%, 26%);
     color: white;
@@ -509,4 +354,172 @@ main > div {
     text-decoration: none;
     background-color: white;
     color: hsl(143, 63%, 26%);
+}
+
+@layer layout {
+    body {
+        --gutter-width: 10%;
+
+        display: grid;
+        grid-template-columns:
+                [full-width-start left-gutter-start]
+                var(--gutter-width)
+                [left-gutter-end content-start]
+                1fr
+                [content-end right-gutter-start]
+                var(--gutter-width)
+                [right-gutter-end full-width-end];
+
+        & > * {
+            grid-column: content;
+        }
+
+        & > header,
+        & > footer {
+            grid-column: full-width;
+        }
+    }
+
+    main {
+        grid-column: full-width;
+        display: grid;
+        grid-template-columns: inherit;
+
+        & > * {
+            grid-column: content;
+        }
+    }
+
+    nav {
+        grid-column: full-width;
+        position: sticky;
+        top: 0;
+        z-index: 1;
+    }
+
+    menu {
+        display: flex;
+        justify-content: center;
+        padding: 0 10%;
+    }
+
+    section .call-to-action {
+        margin-left: auto;
+    }
+
+    .landing {
+        --gutter-width: 1fr;
+        grid-column: full-width;
+        min-height: 100dvh;
+        display: grid;
+        grid-template-columns: var(--gutter-width) [content-start] minmax(300px, 3fr) [content-end] 3fr var(--gutter-width);
+        align-items: center;
+        margin: 0;
+
+        & > .content {
+            grid-column: content;
+            display: flex;
+            flex-direction: column;
+        }
+
+        position: relative;
+        & > img {
+            grid-column: 1 / -1;
+            position: absolute;
+            inset: 0;
+            z-index: -1;
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    main > div {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 5ch;
+        & > * {
+            flex: 1;
+        }
+        margin-block: 2rem;
+    }
+
+    section {
+        grid-column: full-width;
+        display: grid;
+        grid-template-columns: inherit;
+        & > :not(.content) {
+            grid-column: full-width;
+        }
+        & > .content {
+            grid-column: content;
+        }
+        @media (min-aspect-ratio: 1/1) {
+            & {
+                grid-template-columns: [image-start] 50% [image-end content-start] 1fr [content-end];
+                justify-items: start;
+
+                &:nth-of-type(2n) {
+                    grid-template-columns: [content-start] 1fr [content-end image-start] 50% [image-end];
+                }
+
+                & > :not(.content) {
+                    grid-row: 1/-1;
+                    grid-column: image;
+                }
+            }
+        }
+    }
+
+    footer {
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
+        & nav > ul {
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+    }
+
+    form button:not([type]:not([type="submit"])) {
+        margin-left: auto;
+    }
+
+    form {
+        --label-inset: -.6em;
+        & button {
+            margin-top: calc(1lh + var(--label-inset));
+        }
+        & label {
+            margin-bottom: var(--label-inset);
+        }
+    }
+
+    form:has(input:only-of-type + button) {
+        display: grid;
+        grid-template-columns:
+            [full-content-start input-start]
+            1fr
+            [input-end button-start]
+            auto
+            [button-end full-content-end];
+        & > * {
+            grid-column: full-content;
+        }
+        & > input:only-of-type {
+            grid-column: input;
+        }
+        & > input:only-of-type + button {
+            grid-column: button;
+        }
+    }
+}
+
+@layer scroll {
+    :root {
+        scroll-behavior: smooth;
+        & * {
+            scroll-margin-block: 10dvh;
+        }
+    }
 }
