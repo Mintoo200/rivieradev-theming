@@ -68,9 +68,11 @@ section p::first-letter {
     color: inherit;
     display: inline-block;
     --decoration-color: hsl(215 100% 50%);
+
     menu & {
         --decoration-color: hsla(180deg 100% 27.25% / .2);
     }
+
     text-decoration: none;
     position: relative;
 
@@ -78,8 +80,8 @@ section p::first-letter {
         /* For privacy reasons, unable to use variable here (https://developer.mozilla.org/en-US/docs/Web/CSS/Privacy_and_the_:visited_selector) */
         background-color: hsl(246, 100%, 80%);
     }
+
     &::before {
-        z-index: -1;
         position: absolute;
         content: "";
         background-color: var(--decoration-color);
@@ -87,33 +89,12 @@ section p::first-letter {
         left: 0;
         right: 0;
         height: 2px;
-        transition: height 100ms linear;
-    }
-
-    &:hover::before,
-    &:focus-visible::before {
-        height: 100%;
-    }
-
-    &:hover,
-    &:focus-visible,
-    &:hover *,
-    &:focus-visible * {
-        color: inherit;
     }
 }
 
 .call-to-action, button {
     display: block;
     background-image: linear-gradient(to bottom right, hsl(175, 82%, 15%), hsl(143, 63%, 38%));
-    background-size: 200%;
-    transition:
-            background-position 100ms linear,
-            box-shadow 100ms linear;
-    &:hover, &:focus-visible {
-        background-position: 100% 100%;
-        box-shadow: inset 0 0 8px #1f1f1f;
-    }
     color: white;
     border-radius: 10px;
     width: fit-content;
@@ -175,24 +156,6 @@ svg {
         object-fit: cover;
         filter: blur(2px) brightness(55%);
     }
-
-    view-timeline: --squash block;
-    animation-timeline: --squash;
-
-    animation-name: squash;
-    animation-fill-mode: both;
-    animation-duration: 1ms;
-    animation-range: exit 0% exit 100%;
-}
-
-@keyframes squash {
-    from {
-        min-height: 100dvh;
-    }
-    to {
-        /* FIXME (GAFI 14-06-2024): Add variable ? */
-        min-height: 50dvh;
-    }
 }
 
 section {
@@ -201,26 +164,9 @@ section {
         height: 100%;
         aspect-ratio: 16/9;
         object-fit: cover;
-
-        view-timeline: --subjectReveal block;
-        animation-timeline: --subjectReveal;
-
-        animation-name: sharpen;
-        animation-fill-mode: both;
-        animation-duration: 1ms;
-        animation-range: entry contain;
     }
     & .content {
         padding: 10%;
-    }
-}
-
-@keyframes sharpen {
-    from {
-        filter: blur(10px);
-    }
-    to {
-        filter: blur(0);
     }
 }
 
@@ -520,6 +466,77 @@ aside {
         scroll-behavior: smooth;
         & * {
             scroll-margin-block: 10dvh;
+        }
+    }
+}
+
+@layer animations {
+    .landing {
+        view-timeline: --squash block;
+        animation-timeline: --squash;
+
+        animation-name: squash;
+        animation-fill-mode: both;
+        animation-duration: 1ms;
+        animation-range: exit 0% exit 100%;
+    }
+
+    @keyframes squash {
+        from {
+            min-height: 100dvh;
+        }
+        to {
+            /* FIXME (GAFI 14-06-2024): Add variable ? */
+            min-height: 50dvh;
+        }
+    }
+
+    section > :not(.content) {
+        view-timeline: --subjectReveal block;
+        animation-timeline: --subjectReveal;
+
+        animation-name: sharpen;
+        animation-fill-mode: both;
+        animation-duration: 1ms;
+        animation-range: entry contain;
+    }
+
+    @keyframes sharpen {
+        from {
+            filter: blur(10px);
+        }
+        to {
+            filter: blur(0);
+        }
+    }
+
+    .call-to-action, button {
+        background-size: 200%;
+        transition: background-position 100ms linear,
+        box-shadow 100ms linear;
+
+        &:hover, &:focus-visible {
+            background-position: 100% 100%;
+            box-shadow: inset 0 0 8px #1f1f1f;
+        }
+    }
+
+    :any-link:not(.call-to-action) {
+        &::before {
+            z-index: -1;
+            transition: height 100ms linear;
+        }
+
+        &:hover::before,
+        &:focus-visible::before {
+            height: 100%;
+        }
+
+        &:hover,
+        &:focus-visible,
+        &:hover *,
+        &:focus-visible * {
+            color: inherit;
         }
     }
 }
