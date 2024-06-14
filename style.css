@@ -82,7 +82,7 @@
         text-decoration: none;
         position: relative;
 
-        &:visited::before {
+        &:not([href^='#']):visited::before {
             /* For privacy reasons, unable to use variable here (https://developer.mozilla.org/en-US/docs/Web/CSS/Privacy_and_the_:visited_selector) */
             background-color: hsl(246, 100%, 80%);
         }
