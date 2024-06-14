@@ -338,7 +338,7 @@ footer {
         display: inline;
     }
     & small {
-        color: black;
+        color: inherit;
     }
 }
 
