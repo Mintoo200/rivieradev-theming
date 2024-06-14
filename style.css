@@ -310,6 +310,20 @@
     }
 }
 
+@layer code {
+    code .keyword {
+        color:  hsl(143, 63%, 26%);
+    }
+    code .string {
+        color:  goldenrod;
+        font-weight: lighter;
+    }
+    code .tag {
+        color:  hsl(143, 80%, 26%);
+        font-weight: bolder;
+    }
+}
+
 @layer animations {
     .landing {
         view-timeline: --squash block;
