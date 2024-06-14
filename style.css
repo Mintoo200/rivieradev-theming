@@ -92,6 +92,7 @@
         grid-column: full-width;
         display: grid;
         grid-template-columns: inherit;
+        align-items: center;
         & > :not(.content) {
             grid-column: full-width;
         }
@@ -269,7 +270,6 @@
         padding: .75rem;
         text-decoration: none;
         &::after {
-            content: "→";
             content: "→" / "";
             margin-inline-start: .5rem;
             font-weight: bolder;
