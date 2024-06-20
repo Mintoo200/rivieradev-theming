@@ -219,15 +219,6 @@
         font-weight: bolder;
     }
 
-    button {
-        border-radius: 10px;
-        padding: 1rem 3ch;
-        border: none;
-        background-color: hsl(143, 63%, 26%);
-        color: white;
-        font-weight: bolder;
-    }
-
     section p::first-letter {
         font-size: 1.5em;
         color: hsl(143, 63%, 26%);
@@ -262,10 +253,12 @@
     }
 
     .call-to-action, button {
+        border-radius: 10px;
+        border: none;
+        font-weight: bolder;
         display: block;
         background-image: linear-gradient(to bottom right, hsl(175, 82%, 15%), hsl(143, 63%, 38%));
         color: white;
-        border-radius: 10px;
         width: fit-content;
         padding: .75rem;
         text-decoration: none;
