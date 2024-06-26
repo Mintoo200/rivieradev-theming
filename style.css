@@ -67,6 +67,7 @@
             flex-direction: column;
         }
 
+        z-index: 0;
         position: relative;
         & > img {
             grid-column: 1 / -1;
@@ -532,6 +533,7 @@
     }
 
     :any-link:not(.call-to-action) {
+        z-index: 0;
         &::before {
             z-index: -1;
             transition: height 100ms linear;
