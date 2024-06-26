@@ -471,7 +471,7 @@
         color:  hsl(143, 63%, 26%);
     }
     code .string {
-        color:  goldenrod;
+        color:  red;
         font-weight: lighter;
     }
     code .tag {
