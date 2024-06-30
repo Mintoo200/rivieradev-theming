@@ -310,7 +310,7 @@ code .keyword {
     color:  hsl(143, 63%, 26%);
 }
 code .string {
-    color:  red;
+    color:  blue;
     font-weight: lighter;
 }
 code .tag {
