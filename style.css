@@ -1,6 +1,51 @@
 :root {
-    background-color: white;
-    color: black;
+    --background-color: white;
+    --text-color: black;
+
+    --discrete-text-color: grey;
+    --important-text-color: hsl(143, 63%, 26%);
+    --first-letter-color: hsl(143, 63%, 26%);
+
+    --link-text-color: inherit;
+    --link-decoration-color: hsl(215 100% 50%);
+    --link-hover-text-color: inherit;
+    --visited-link-decoration-color: hsl(246, 100%, 80%);
+
+    --call-to-action-background-color: linear-gradient(to bottom right, hsl(175, 82%, 15%), hsl(143, 63%, 38%));
+    --call-to-action-color: white;
+    --call-to-action-hover-shadow-color: #1f1f1f;
+
+    --menu-link-decoration-color: hsla(180deg 100% 27.25% / .2);
+    --menu-separator-color: lightgrey;
+    --menu-background-color: hsla(0 0% 100% / .7);
+    --menu-items-separator-color: hsl(180deg 29.23% 87.25%);
+
+    --main-heading-color: linear-gradient(to bottom right, #0d776e, #38ef7d);
+    --landing-text-color: white;
+
+    --footer-separator-color: hsla(180deg 100% 27.25% / .2);
+    --footer-background-color: hsla(180deg 100% 27.25% / .05);
+
+    --label-background-color: white;
+    --input-border-color: hsl(143, 63%, 26%);
+
+    --aside-border-color: hsl(143, 63%, 26%);
+
+    --selection-background-color: hsl(143, 63%, 26%);
+    --selection-text-color: white;
+    --call-to-action-selection-background-color: white;
+    --call-to-action-selection-text-color: hsl(143, 63%, 26%);
+
+    --before-after-background-color: white;
+    --before-after-border-color: black;
+    --code-keyword-color: hsl(143, 63%, 26%);
+    --code-string-color: blue;
+    --code-tag-color: hsl(143, 80%, 26%);
+}
+
+:root {
+    background-color: var(--background-color);
+    color: var(--text-color);
 }
 :root {
     scroll-behavior: smooth;
@@ -25,7 +70,7 @@ body {
 
 h1 {
     color: transparent;
-    background: linear-gradient(to bottom right, #0d776e, #38ef7d);
+    background: var(--main-heading-color);
     background-clip: text;
     font-size: 3.5rem;
     width: fit-content;
@@ -47,26 +92,26 @@ h2:has(+ small) {
 }
 
 small {
-    color: grey;
+    color: var(--discrete-text-color);
 }
 
 strong, b, em {
-    color: hsl(143, 63%, 26%);
+    color: var(--important-text-color);
     font-weight: bolder;
 }
 
 section p::first-letter {
     font-size: 1.5em;
-    color: hsl(143, 63%, 26%);
+    color: var(--first-letter-color);
 }
 
 :any-link:not(.call-to-action) {
-    color: inherit;
+    color: var(--link-text-color);
     display: inline-block;
-    --decoration-color: hsl(215 100% 50%);
+    --decoration-color: var(--link-decoration-color);
 
     menu & {
-        --decoration-color: hsla(180deg 100% 27.25% / .2);
+        --decoration-color: var(--menu-link-decoration-color);
     }
 
     text-decoration: none;
@@ -74,7 +119,7 @@ section p::first-letter {
 
     &:not([href^='#']):visited::before {
         /* For privacy reasons, unable to use variable here (https://developer.mozilla.org/en-US/docs/Web/CSS/Privacy_and_the_:visited_selector) */
-        background-color: hsl(246, 100%, 80%);
+        background-color: var(--visited-link-decoration-color);
     }
 
     &::before {
@@ -94,8 +139,8 @@ section p::first-letter {
     font-weight: bolder;
     font-family: inherit;
     display: block;
-    background: linear-gradient(to bottom right, hsl(175, 82%, 15%), hsl(143, 63%, 38%));
-    color: white;
+    background: var(--call-to-action-background-color);
+    color: var(--call-to-action-color);
     width: fit-content;
     padding: .75rem;
     text-decoration: none;
@@ -114,9 +159,9 @@ menu {
 }
 
 menu {
-    border-bottom: 2px solid lightgrey;
+    border-bottom: 2px solid var(--menu-separator-color);
     backdrop-filter: blur(30px);
-    background-color: hsla(0 0% 100% / .7);
+    background-color: var(--menu-background-color);
 }
 
 menu :any-link {
@@ -135,7 +180,7 @@ menu li {
         right: 0;
         top: 15%;
         bottom: 15%;
-        border: 1px solid hsl(180deg 29.23% 87.25%);
+        border: 1px solid var(--menu-items-separator-color);
         border-radius: 50%;
         translate: 50%;
         z-index: 1;
@@ -149,7 +194,7 @@ svg {
 }
 
 .landing {
-    color: white;
+    color: var(--landing-text-color);
 
     & > img {
         object-fit: cover;
@@ -171,8 +216,8 @@ section {
 
 footer {
     text-align: center;
-    border-top: 2px solid hsla(180deg 100% 27.25% / .2);
-    background-color: hsla(180deg 100% 27.25% / .05);
+    border-top: 2px solid var(--footer-separator-color);
+    background-color: var(--footer-background-color);
     padding: 1em 5%;
 
     & nav li:has(> a:only-child > svg:only-child) {
@@ -189,7 +234,7 @@ label {
     margin-left: 1ch;
     padding-inline: 1ch;
     z-index: 1;
-    background-color: white;
+    background-color: var(--label-background-color);
     width: fit-content;
     font-weight: bold;
 }
@@ -209,7 +254,7 @@ textarea,
 input:only-of-type + button {
     padding: 1em;
     border-radius: 10px;
-    border: 2px solid hsl(143, 63%, 26%);
+    border: 2px solid var(--input-border-color);
 }
 
 input,
@@ -253,8 +298,8 @@ input[type="email"] {
         z-index: 1;
     }
     & pre {
-        background-color: white;
-        border: 1px solid black;
+        background-color: var(--before-after-background-color);
+        border: 1px solid var(--before-after-border-color);
         margin: 0;
         clip: rect(0, auto, auto, 0);
         & code {
@@ -273,7 +318,7 @@ input[type="email"] {
 }
 
 aside {
-    border: 1px solid hsl(143, 63%, 26%);
+    border: 1px solid var(--aside-border-color);
     border-radius: 0 25px;
     &:nth-child(2n + 1) {
         border-radius: 25px 0;
@@ -289,16 +334,16 @@ aside {
 }
 
 ::selection {
-    background-color: hsl(143, 63%, 26%);
-    color: white;
+    background-color: var(--selection-background-color);
+    color: var(--selection-text-color);
 }
 :any-link::selection {
     text-decoration: underline;
 }
 .call-to-action::selection {
     text-decoration: none;
-    background-color: white;
-    color: hsl(143, 63%, 26%);
+    background-color: var(--call-to-action-selection-background-color);
+    color: var(--call-to-action-selection-text-color);
 }
 
 *[hidden] {
@@ -307,14 +352,14 @@ aside {
 
 /* region code highlighting */
 code .keyword {
-    color:  hsl(143, 63%, 26%);
+    color: var(--code-keyword-color);
 }
 code .string {
-    color:  blue;
+    color: var(--code-string-color);
     font-weight: lighter;
 }
 code .tag {
-    color:  hsl(143, 80%, 26%);
+    color: var(--code-tag-color);
     font-weight: bolder;
 }
 /* endregion */
@@ -366,7 +411,7 @@ section > :not(.content) {
 
     &:hover, &:focus-visible {
         background-position: 100% 100%;
-        box-shadow: inset 0 0 8px #1f1f1f;
+        box-shadow: inset 0 0 8px var(--call-to-action-hover-shadow-color);
     }
 }
 
@@ -386,7 +431,7 @@ section > :not(.content) {
     &:focus-visible,
     &:hover *,
     &:focus-visible * {
-        color: inherit;
+        color: var(--link-hover-text-color);
     }
 }
 /*endregion*/
