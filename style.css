@@ -45,55 +45,53 @@
     --code-string-color: blue;
     --code-tag-color: hsl(143, 80%, 26%);
 }
-@media (prefers-color-scheme: dark) {
-    :root {
-        color-scheme: dark;
-         --primary-color: hsl(143, 63%, 45%);
+[data-theme="dark"] {
+    color-scheme: dark;
+    --primary-color: hsl(143, 63%, 45%);
 
-         --background-color: black;
-         --text-color: white;
+    --background-color: black;
+    --text-color: white;
 
-         --discrete-text-color: grey;
-         --important-text-color: var(--primary-color);
-         --first-letter-color: var(--primary-color);
+    --discrete-text-color: grey;
+    --important-text-color: var(--primary-color);
+    --first-letter-color: var(--primary-color);
 
-         --link-text-color: inherit;
-         --link-decoration-color: hsl(215 100% 50%);
-         --link-hover-text-color: inherit;
-         --visited-link-decoration-color: hsl(246, 100%, 80%);
+    --link-text-color: inherit;
+    --link-decoration-color: hsl(215 100% 50%);
+    --link-hover-text-color: inherit;
+    --visited-link-decoration-color: hsl(246, 100%, 80%);
 
-         --call-to-action-background-color: linear-gradient(to bottom right, hsl(175, 82%, 15%), hsl(143, 63%, 38%));
-         --call-to-action-color: white;
-         --call-to-action-hover-shadow-color: #1f1f1f;
+    --call-to-action-background-color: linear-gradient(to bottom right, hsl(175, 82%, 15%), hsl(143, 63%, 38%));
+    --call-to-action-color: white;
+    --call-to-action-hover-shadow-color: #1f1f1f;
 
-         --menu-link-decoration-color: hsla(180deg 100% 27.25% / .2);
-         --menu-separator-color: lightgrey;
-         --menu-background-color: hsla(0 0% 30% / .7);
-         --menu-items-separator-color: hsl(180deg 29.23% 87.25%);
+    --menu-link-decoration-color: hsla(180deg 100% 27.25% / .2);
+    --menu-separator-color: lightgrey;
+    --menu-background-color: hsla(0 0% 30% / .7);
+    --menu-items-separator-color: hsl(180deg 29.23% 87.25%);
 
-         --main-heading-color: linear-gradient(to bottom right, #0d776e, #38ef7d);
-         --landing-text-color: white;
+    --main-heading-color: linear-gradient(to bottom right, #0d776e, #38ef7d);
+    --landing-text-color: white;
 
-         --footer-separator-color: hsla(180deg 100% 27.25% / .2);
-         --footer-background-color: hsla(180deg 100% 27.25% / .05);
+    --footer-separator-color: hsla(180deg 100% 27.25% / .2);
+    --footer-background-color: hsla(180deg 100% 27.25% / .05);
 
-         --label-background-color: var(--background-color);
-         --input-border-color: var(--primary-color);
-         --input-background-color: var(--background-color);
+    --label-background-color: var(--background-color);
+    --input-border-color: var(--primary-color);
+    --input-background-color: var(--background-color);
 
-         --aside-border-color: var(--primary-color);
+    --aside-border-color: var(--primary-color);
 
-         --selection-background-color: var(--primary-color);
-         --selection-text-color: white;
-         --call-to-action-selection-background-color: white;
-         --call-to-action-selection-text-color: var(--primary-color);
+    --selection-background-color: var(--primary-color);
+    --selection-text-color: white;
+    --call-to-action-selection-background-color: white;
+    --call-to-action-selection-text-color: var(--primary-color);
 
-         --before-after-background-color: var(--background-color);
-         --before-after-border-color: white;
-         --code-keyword-color: var(--primary-color);
-         --code-string-color: red;
-         --code-tag-color: hsl(143, 80%, 26%);
-     }
+    --before-after-background-color: var(--background-color);
+    --before-after-border-color: white;
+    --code-keyword-color: var(--primary-color);
+    --code-string-color: red;
+    --code-tag-color: hsl(143, 80%, 26%);
 }
 
 @media (forced-colors: active) {
@@ -109,7 +107,7 @@
     --text-color: hsl(0 0 50%);
 }
 
-:root {
+:root, [data-theme] {
     background-color: var(--background-color);
     color: var(--text-color);
 }
