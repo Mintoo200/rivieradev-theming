@@ -25,7 +25,7 @@ body {
 
 h1 {
     color: transparent;
-    background-image: linear-gradient(to bottom right, #0d776e, #38ef7d);
+    background: linear-gradient(to bottom right, #0d776e, #38ef7d);
     background-clip: text;
     font-size: 3.5rem;
     width: fit-content;
@@ -94,7 +94,7 @@ section p::first-letter {
     font-weight: bolder;
     font-family: inherit;
     display: block;
-    background-image: linear-gradient(to bottom right, hsl(175, 82%, 15%), hsl(143, 63%, 38%));
+    background: linear-gradient(to bottom right, hsl(175, 82%, 15%), hsl(143, 63%, 38%));
     color: white;
     width: fit-content;
     padding: .75rem;
