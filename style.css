@@ -96,6 +96,19 @@
      }
 }
 
+@media (forced-colors: active) {
+    :root {
+        --menu-background-color: Canvas;
+        --call-to-action-color: ActiveText;
+    }
+}
+@media (prefers-contrast: more) {
+    --discrete-text-color: var(--text-color);
+}
+@media (prefers-contrast: less) {
+    --text-color: hsl(0 0 50%);
+}
+
 :root {
     background-color: var(--background-color);
     color: var(--text-color);
