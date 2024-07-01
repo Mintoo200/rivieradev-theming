@@ -1,4 +1,167 @@
 :root, [data-theme] {
+    --button-radius-mixin: var(--button-border-radius-on);
+    --button-border-radius-on: var(--button-radius-mixin,);
+    --button-border-radius-off: var(--button-radius-mixin,);
+
+    --button-border-radius: var(--button-border-radius-on, 10px) var(--button-border-radius-off, 0px);
+}
+
+:root, [data-theme] {
+    --theme-mixin: var(--light-theme);
+    --light-theme: var(--theme-mixin,);
+    --dark-theme: var(--theme-mixin,);
+
+    color-scheme:
+            var(--light-theme, light)
+            var(--dark-theme, dark);
+
+    --primary-color:
+            var(--light-theme, hsl(143, 63%, 26%))
+            var(--dark-theme, hsl(143, 63%, 45%));
+
+    --background-color:
+            var(--light-theme, white)
+            var(--dark-theme, black);
+    --text-color:
+            var(--light-theme, black)
+            var(--dark-theme, white);
+
+    --discrete-text-color:
+            var(--light-theme, grey)
+            var(--dark-theme, grey);
+    --important-text-color:
+            var(--light-theme, var(--primary-color))
+            var(--dark-theme, var(--primary-color));
+    --first-letter-color:
+            var(--light-theme, var(--primary-color))
+            var(--dark-theme, var(--primary-color));
+
+    --link-text-color:
+            var(--light-theme, inherit)
+            var(--dark-theme, inherit);
+    --link-decoration-color:
+            var(--light-theme, hsl(215 100% 50%))
+            var(--dark-theme, hsl(215 100% 50%));
+    --link-hover-text-color:
+            var(--light-theme, inherit)
+            var(--dark-theme, inherit);
+    --visited-link-decoration-color:
+            var(--light-theme, hsl(246, 100%, 80%))
+            var(--dark-theme, hsl(246, 100%, 80%));
+
+    --call-to-action-background-color:
+            var(--light-theme, linear-gradient(to bottom right, hsl(175, 82%, 15%), hsl(143, 63%, 38%)))
+            var(--dark-theme, linear-gradient(to bottom right, hsl(175, 82%, 15%), hsl(143, 63%, 38%)));
+    --call-to-action-color:
+            var(--light-theme, white)
+            var(--dark-theme, white);
+    --call-to-action-hover-shadow-color:
+            var(--light-theme, #1f1f1f)
+            var(--dark-theme, #1f1f1f);
+
+    --menu-link-decoration-color:
+            var(--light-theme, hsla(180deg 100% 27.25% / .2))
+            var(--dark-theme, hsla(180deg 100% 27.25% / .2));
+    --menu-separator-color:
+            var(--light-theme, lightgrey)
+            var(--dark-theme, lightgrey);
+    --menu-background-color:
+            var(--light-theme, hsla(0 0% 100% / .7))
+            var(--dark-theme, hsla(0 0% 30% / .7));
+    --menu-items-separator-color:
+            var(--light-theme, hsl(180deg 29.23% 87.25%))
+            var(--dark-theme, hsl(180deg 29.23% 87.25%));
+
+    --main-heading-color:
+            var(--light-theme, linear-gradient(to bottom right, #0d776e, #38ef7d))
+            var(--dark-theme, linear-gradient(to bottom right, #0d776e, #38ef7d));
+    --landing-text-color:
+            var(--light-theme, white)
+            var(--dark-theme, white);
+
+    --footer-separator-color:
+            var(--light-theme, hsla(180deg 100% 27.25% / .2))
+            var(--dark-theme, hsla(180deg 100% 27.25% / .2));
+    --footer-background-color:
+            var(--light-theme, hsla(180deg 100% 27.25% / .05))
+            var(--dark-theme, hsla(180deg 100% 27.25% / .05));
+
+    --label-background-color:
+            var(--light-theme, var(--background-color))
+            var(--dark-theme, var(--background-color));
+    --input-border-color:
+            var(--light-theme, var(--primary-color))
+            var(--dark-theme, var(--primary-color));
+    --input-background-color:
+            var(--light-theme, var(--background-color))
+            var(--dark-theme, var(--background-color));
+
+    --aside-border-color:
+            var(--light-theme, var(--primary-color))
+            var(--dark-theme, var(--primary-color));
+
+    --selection-background-color:
+            var(--light-theme, var(--primary-color))
+            var(--dark-theme, var(--primary-color));
+    --selection-text-color:
+            var(--light-theme, white)
+            var(--dark-theme, white);
+    --call-to-action-selection-background-color:
+            var(--light-theme, white)
+            var(--dark-theme, white);
+    --call-to-action-selection-text-color:
+            var(--light-theme, var(--primary-color))
+            var(--dark-theme, var(--primary-color));
+
+    --before-after-background-color:
+            var(--light-theme, var(--background-color))
+            var(--dark-theme, var(--background-color));
+    --before-after-border-color:
+            var(--light-theme, black)
+            var(--dark-theme, white);
+    --code-keyword-color:
+            var(--light-theme, var(--primary-color))
+            var(--dark-theme, var(--primary-color));
+    --code-string-color:
+            var(--light-theme, blue)
+            var(--dark-theme, red);
+    --code-tag-color:
+            var(--light-theme, hsl(143, 80%, 26%))
+            var(--dark-theme, hsl(143, 80%, 26%));
+}
+[data-theme="dark"] {
+    --theme-mixin: var(--dark-theme);
+    --button-radius-mixin: var(--button-border-radius-off);
+}
+@media (prefers-color-scheme: dark) {
+    :root {
+        --theme-mixin: var(--dark-theme);
+        --button-radius-mixin: var(--button-border-radius-off);
+    }
+}
+[data-theme="light"] {
+    --theme-mixin: var(--light-theme);
+}
+@media (prefers-color-scheme: light) {
+    :root {
+        --theme-mixin: var(--light-theme);
+    }
+}
+
+@media (forced-colors: active) {
+    :root {
+        --menu-background-color: Canvas;
+        --call-to-action-color: ActiveText;
+    }
+}
+@media (prefers-contrast: more) {
+    --discrete-text-color: var(--text-color);
+}
+@media (prefers-contrast: less) {
+    --text-color: hsl(0 0 50%);
+}
+
+:root, [data-theme] {
     background-color: var(--background-color);
     color: var(--text-color);
 }
@@ -89,7 +252,7 @@ section p::first-letter {
 }
 
 .call-to-action, button {
-    border-radius: 10px;
+    border-radius: var(--button-border-radius);
     border: none;
     font-weight: bolder;
     font-family: inherit;
@@ -555,163 +718,3 @@ form:has(input:only-of-type + button) {
     }
 }
 /* endregion */
-
-:root, [data-theme] {
-    --theme-mixin: var(--light-theme);
-    --light-theme: var(--theme-mixin,);
-    --dark-theme: var(--theme-mixin,);
-
-    color-scheme:
-            var(--light-theme, light)
-            var(--dark-theme, dark);
-
-    --primary-color:
-            var(--light-theme, hsl(143, 63%, 26%))
-            var(--dark-theme, hsl(143, 63%, 45%));
-
-    --background-color:
-            var(--light-theme, white)
-            var(--dark-theme, black);
-    --text-color:
-            var(--light-theme, black)
-            var(--dark-theme, white);
-
-    --discrete-text-color:
-            var(--light-theme, grey)
-            var(--dark-theme, grey);
-    --important-text-color:
-            var(--light-theme, var(--primary-color))
-            var(--dark-theme, var(--primary-color));
-    --first-letter-color:
-            var(--light-theme, var(--primary-color))
-            var(--dark-theme, var(--primary-color));
-
-    --link-text-color:
-            var(--light-theme, inherit)
-            var(--dark-theme, inherit);
-    --link-decoration-color:
-            var(--light-theme, hsl(215 100% 50%))
-            var(--dark-theme, hsl(215 100% 50%));
-    --link-hover-text-color:
-            var(--light-theme, inherit)
-            var(--dark-theme, inherit);
-    --visited-link-decoration-color:
-            var(--light-theme, hsl(246, 100%, 80%))
-            var(--dark-theme, hsl(246, 100%, 80%));
-
-    --call-to-action-background-color:
-            var(--light-theme, linear-gradient(to bottom right, hsl(175, 82%, 15%), hsl(143, 63%, 38%)))
-            var(--dark-theme, linear-gradient(to bottom right, hsl(175, 82%, 15%), hsl(143, 63%, 38%)));
-    --call-to-action-color:
-            var(--light-theme, white)
-            var(--dark-theme, white);
-    --call-to-action-hover-shadow-color:
-            var(--light-theme, #1f1f1f)
-            var(--dark-theme, #1f1f1f);
-
-    --menu-link-decoration-color:
-            var(--light-theme, hsla(180deg 100% 27.25% / .2))
-            var(--dark-theme, hsla(180deg 100% 27.25% / .2));
-    --menu-separator-color:
-            var(--light-theme, lightgrey)
-            var(--dark-theme, lightgrey);
-    --menu-background-color:
-            var(--light-theme, hsla(0 0% 100% / .7))
-            var(--dark-theme, hsla(0 0% 30% / .7));
-    --menu-items-separator-color:
-            var(--light-theme, hsl(180deg 29.23% 87.25%))
-            var(--dark-theme, hsl(180deg 29.23% 87.25%));
-
-    --main-heading-color:
-            var(--light-theme, linear-gradient(to bottom right, #0d776e, #38ef7d))
-            var(--dark-theme, linear-gradient(to bottom right, #0d776e, #38ef7d));
-    --landing-text-color:
-            var(--light-theme, white)
-            var(--dark-theme, white);
-
-    --footer-separator-color:
-            var(--light-theme, hsla(180deg 100% 27.25% / .2))
-            var(--dark-theme, hsla(180deg 100% 27.25% / .2));
-    --footer-background-color:
-            var(--light-theme, hsla(180deg 100% 27.25% / .05))
-            var(--dark-theme, hsla(180deg 100% 27.25% / .05));
-
-    --label-background-color:
-            var(--light-theme, var(--background-color))
-            var(--dark-theme, var(--background-color));
-    --input-border-color:
-            var(--light-theme, var(--primary-color))
-            var(--dark-theme, var(--primary-color));
-    --input-background-color:
-            var(--light-theme, var(--background-color))
-            var(--dark-theme, var(--background-color));
-
-    --aside-border-color:
-            var(--light-theme, var(--primary-color))
-            var(--dark-theme, var(--primary-color));
-
-    --selection-background-color:
-            var(--light-theme, var(--primary-color))
-            var(--dark-theme, var(--primary-color));
-    --selection-text-color:
-            var(--light-theme, white)
-            var(--dark-theme, white);
-    --call-to-action-selection-background-color:
-            var(--light-theme, white)
-            var(--dark-theme, white);
-    --call-to-action-selection-text-color:
-            var(--light-theme, var(--primary-color))
-            var(--dark-theme, var(--primary-color));
-
-    --before-after-background-color:
-            var(--light-theme, var(--background-color))
-            var(--dark-theme, var(--background-color));
-    --before-after-border-color:
-            var(--light-theme, black)
-            var(--dark-theme, white);
-    --code-keyword-color:
-            var(--light-theme, var(--primary-color))
-            var(--dark-theme, var(--primary-color));
-    --code-string-color:
-            var(--light-theme, blue)
-            var(--dark-theme, red);
-    --code-tag-color:
-            var(--light-theme, hsl(143, 80%, 26%))
-            var(--dark-theme, hsl(143, 80%, 26%));
-}
-[data-theme="dark"] {
-    --theme-mixin: var(--dark-theme);
-    & button, & .call-to-action {
-        border-radius: 0px;
-    }
-}
-@media (prefers-color-scheme: dark) {
-    :root {
-        --theme-mixin: var(--dark-theme);
-    }
-    button,
-    .call-to-action {
-        border-radius: 0px;
-    }
-}
-[data-theme="light"] {
-    --theme-mixin: var(--light-theme);
-}
-@media (prefers-color-scheme: light) {
-    :root {
-        --theme-mixin: var(--light-theme);
-    }
-}
-
-@media (forced-colors: active) {
-    :root {
-        --menu-background-color: Canvas;
-        --call-to-action-color: ActiveText;
-    }
-}
-@media (prefers-contrast: more) {
-    --discrete-text-color: var(--text-color);
-}
-@media (prefers-contrast: less) {
-    --text-color: hsl(0 0 50%);
-}
