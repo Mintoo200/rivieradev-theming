@@ -1,9 +1,14 @@
 :root, [data-theme] {
-    --button-radius-mixin: var(--button-border-radius-on);
-    --button-border-radius-on: var(--button-radius-mixin,);
-    --button-border-radius-off: var(--button-radius-mixin,);
+    --button-radius-mixin: var(--button-radius-off);
+    --button-radius-on: var(--button-radius-mixin,);
+    --button-radius-off: var(--button-radius-mixin,);
 
-    --button-border-radius: var(--button-border-radius-on, 10px) var(--button-border-radius-off, 0px);
+    --border-radius:
+            var(--button-radius-off, 10px)
+            var(--button-radius-on, 30px);
+    & button, & .call-to-action, & input, & textarea {
+        border-radius: var(--border-radius);
+    }
 }
 
 :root, [data-theme] {
@@ -128,15 +133,21 @@
     --code-tag-color:
             var(--light-theme, hsl(143, 80%, 26%))
             var(--dark-theme, hsl(143, 80%, 26%));
+
+    & button, & .call-to-action {
+        --button-radius-mixin:
+                var(--dark-theme, var(--button-radius-on))
+                var(--light-theme, var(--button-radius-off));
+    }
 }
 [data-theme="dark"] {
     --theme-mixin: var(--dark-theme);
-    --button-radius-mixin: var(--button-border-radius-off);
+    --button-radius-mixin: var(--button-radius-on);
 }
 @media (prefers-color-scheme: dark) {
     :root {
         --theme-mixin: var(--dark-theme);
-        --button-radius-mixin: var(--button-border-radius-off);
+        --button-radius-mixin: var(--button-radius-on);
     }
 }
 [data-theme="light"] {
@@ -252,7 +263,6 @@ section p::first-letter {
 }
 
 .call-to-action, button {
-    border-radius: var(--button-border-radius);
     border: none;
     font-weight: bolder;
     font-family: inherit;
@@ -372,7 +382,6 @@ input,
 textarea,
 input:only-of-type + button {
     padding: 1em;
-    border-radius: 10px;
     border: 2px solid var(--input-border-color);
 }
 
