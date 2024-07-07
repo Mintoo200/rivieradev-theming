@@ -1,13 +1,66 @@
 :root, [data-theme] {
-    --button-radius-mixin: var(--button-radius-off);
-    --button-radius-on: var(--button-radius-mixin,);
-    --button-radius-off: var(--button-radius-mixin,);
-
-    --border-radius:
-            var(--button-radius-off, 10px)
-            var(--button-radius-on, 30px);
-    & button, & .call-to-action, & input, & textarea {
-        border-radius: var(--border-radius);
+    --button-style: var(--button-magic);
+    --button-magic: var(--button-style,);
+    --button-knobs: var(--button-style,);
+}
+button, .call-to-action {
+    --knob-width: 1ch;
+    --knob-border-thickness: 2px;
+    --knob-inset: 1ch;
+    position: var(--button-magic, relative) var(--button-knobs, relative);
+    border-radius: var(--button-magic, 1em) var(--button-knobs, 0);
+    z-index: var(--button-magic, 0);
+    &::before, &::after {
+        position: var(--button-magic, absolute) var(--button-knobs, absolute);
+        content: var(--button-magic, "") var(--button-knobs, "");
+        aspect-ratio: var(--button-magic, 1);
+        border-top: var(--button-magic, 2px solid var(--primary-color)) var(--button-knobs, var(--knob-border-thickness) solid var(--primary-color));
+        border-bottom: var(--button-magic, 2px solid var(--primary-color)) var(--button-knobs, var(--knob-border-thickness) solid var(--primary-color));
+        border-left:  var(--button-knobs, var(--knob-border-thickness) solid var(--primary-color));
+        border-right:  var(--button-knobs, var(--knob-border-thickness) solid var(--primary-color));
+        border-radius: var(--button-magic, 50%);
+        transition-duration: var(--button-magic, 300ms) var(--button-knobs, 200ms);
+        transition-timing-function: var(--button-magic, linear) var(--button-knobs, linear);
+        opacity: var(--button-magic, 0);
+        animation: var(--button-magic, rotate linear infinite 2s);
+        z-index: var(--button-magic, -1) var(--button-knobs, 1);
+        background-color: var(--button-knobs, var(--background-color));
+        transform-origin: top left;
+    }
+    &:hover::before, &:hover::after {
+        opacity: var(--button-magic, 1);
+    }
+    &:hover::before {
+        left: var(--button-magic, 50%) var(--button-knobs, calc(100% - var(--knob-width) - var(--knob-inset) - var(--knob-border-thickness) * 2));
+    }
+    &:hover::after {
+        right: var(--button-magic, 50%) var(--button-knobs, calc(100% - var(--knob-width) - var(--knob-inset) - var(--knob-border-thickness) * 2));
+    }
+    &::before {
+        top: var(--button-magic, 50%) var(--button-knobs, 0);
+        right: var(--button-magic, 50%);
+        bottom: var(--button-magic, 50%);
+        left: var(--button-magic, 50%) var(--button-knobs, var(--knob-inset));
+        transform: var(--button-magic, translate(-50%, -50%)) var(--button-knobs, translateY(-50%));
+        transition-property: var(--button-magic, opacity) var(--button-knobs, left);
+        height: var(--button-magic, 160%) var(--button-knobs, .4em);
+        width: var(--button-knobs, var(--knob-width));
+    }
+    &::after {
+        top: var(--button-magic, 50%);
+        right: var(--button-magic, 50%) var(--button-knobs, var(--knob-inset));
+        bottom: var(--button-magic, 50%) var(--button-knobs, 0);
+        left: var(--button-magic, 50%);
+        transform: var(--button-magic, translate(-50%, -50%)) var(--button-knobs, translateY(50%));
+        transition-property: var(--button-magic, opacity) var(--button-knobs, right);
+        height: var(--button-magic, 200%) var(--button-knobs, .4em);
+        width: var(--button-knobs, var(--knob-width));
+        animation-direction: var(--button-magic, reverse);
+    }
+}
+@keyframes rotate {
+    to {
+        rotate: 180deg;
     }
 }
 
@@ -133,29 +186,26 @@
     --code-tag-color:
             var(--light-theme, hsl(143, 80%, 26%))
             var(--dark-theme, hsl(143, 80%, 26%));
-
-    & button, & .call-to-action {
-        --button-radius-mixin:
-                var(--dark-theme, var(--button-radius-on))
-                var(--light-theme, var(--button-radius-off));
-    }
 }
+
 [data-theme="dark"] {
     --theme-mixin: var(--dark-theme);
-    --button-radius-mixin: var(--button-radius-on);
+    --button-style: var(--button-knobs);
 }
 @media (prefers-color-scheme: dark) {
     :root {
         --theme-mixin: var(--dark-theme);
-        --button-radius-mixin: var(--button-radius-on);
+        --button-style: var(--button-knobs);
     }
 }
 [data-theme="light"] {
     --theme-mixin: var(--light-theme);
+    --button-style: var(--button-magic);
 }
 @media (prefers-color-scheme: light) {
     :root {
         --theme-mixin: var(--light-theme);
+        --button-style: var(--button-magic);
     }
 }
 
@@ -273,9 +323,9 @@ section p::first-letter {
     padding: .75rem;
     text-decoration: none;
     &::after {
-        content: "→" / "";
-        margin-inline-start: .5rem;
-        font-weight: bolder;
+        /*content: "→" / "";*/
+        /*margin-inline-start: .5rem;*/
+        /*font-weight: bolder;*/
     }
 }
 
